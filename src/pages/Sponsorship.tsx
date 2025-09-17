@@ -21,7 +21,7 @@ import {
   Cloud,
   Database,
   Code,
-  Project
+  FolderOpen
 } from 'lucide-react';
 
 const Sponsorship: React.FC = () => {
@@ -64,7 +64,7 @@ const Sponsorship: React.FC = () => {
       description: 'Master project management methodologies and tools for successful project delivery',
       duration: '5 months',
       students: '420+',
-      icon: Project,
+      icon: FolderOpen,
       color: 'from-purple-500 to-purple-600',
       features: ['Agile & Scrum', 'Risk Management', 'Team Leadership', 'Project Planning']
     }

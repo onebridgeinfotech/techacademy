@@ -12,6 +12,7 @@ import Placements from './pages/Placements';
 import Sponsorship from './pages/Sponsorship';
 import MentorApplication from './pages/MentorApplication';
 import ProgramApplication from './pages/ProgramApplication';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/sponsorship" element={<Sponsorship />} />
             <Route path="/mentor-application" element={<MentorApplication />} />
             <Route path="/apply" element={<ProgramApplication />} />
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />

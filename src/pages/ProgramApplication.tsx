@@ -137,7 +137,7 @@ const ProgramApplication: React.FC = () => {
     setFormData(prev => ({
       ...prev,
       [section]: {
-        ...prev[section as keyof typeof prev],
+        ...(prev as any)[section],
         [field]: value
       }
     }));
@@ -171,11 +171,11 @@ const ProgramApplication: React.FC = () => {
     
     try {
       // Send application confirmation email
-      await sendApplicationConfirmation(formData);
+      await sendApplicationConfirmation(formData as any);
       
       // Send interview schedule email (with delay)
       setTimeout(async () => {
-        await sendInterviewSchedule(formData);
+        await sendInterviewSchedule(formData as any);
       }, 2000);
       
       setIsSubmitting(false);

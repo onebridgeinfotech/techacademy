@@ -2,7 +2,7 @@
 // This would integrate with your email service provider (SendGrid, AWS SES, etc.)
 
 export interface ApplicationData {
-  programType: 'free' | 'paid';
+  programType: string;
   selectedProgram: string;
   personalInfo: {
     firstName: string;

@@ -9,7 +9,8 @@ import {
   CheckCircle,
   ArrowRight,
   Play,
-  Quote
+  Quote,
+  Star
 } from 'lucide-react';
 
 const About: React.FC = () => {

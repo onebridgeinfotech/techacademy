@@ -15,7 +15,7 @@ import {
   Play,
   Download,
   Shield,
-  Project
+  FolderOpen
 } from 'lucide-react';
 
 const Courses: React.FC = () => {
@@ -27,7 +27,7 @@ const Courses: React.FC = () => {
     { id: 'digital', name: 'Digital Transformation', icon: Code },
     { id: 'cloud', name: 'Cloud & DevOps', icon: Cloud },
     { id: 'security', name: 'Cyber Security', icon: Shield },
-    { id: 'management', name: 'Project Management', icon: Project },
+    { id: 'management', name: 'Project Management', icon: FolderOpen },
     { id: 'web', name: 'Web Development', icon: Code },
     { id: 'data', name: 'Data Science', icon: Database }
   ];

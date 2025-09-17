@@ -18,7 +18,7 @@ import {
   Smartphone,
   Cloud,
   Shield,
-  Project,
+  FolderOpen,
   Lightbulb,
   Users,
   Target,
@@ -79,7 +79,7 @@ const MentorApplication: React.FC = () => {
     { id: 'mobile-development', name: 'Mobile Development', icon: Smartphone },
     { id: 'cloud-devops', name: 'Cloud & DevOps', icon: Cloud },
     { id: 'cybersecurity', name: 'Cyber Security', icon: Shield },
-    { id: 'project-management', name: 'Project Management', icon: Project },
+    { id: 'project-management', name: 'Project Management', icon: FolderOpen },
     { id: 'digital-marketing', name: 'Digital Marketing', icon: Target },
     { id: 'ui-ux', name: 'UI/UX Design', icon: Lightbulb }
   ];
@@ -108,7 +108,7 @@ const MentorApplication: React.FC = () => {
     setFormData(prev => ({
       ...prev,
       [section]: {
-        ...prev[section as keyof typeof prev],
+        ...(prev as any)[section],
         [field]: value
       }
     }));
