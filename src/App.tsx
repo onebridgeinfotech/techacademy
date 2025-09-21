@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,8 +16,12 @@ import ProgramApplication from './pages/ProgramApplication';
 import Assessment from './pages/Assessment';
 import AssessmentAnalytics from './pages/AssessmentAnalytics';
 import AdminDashboard from './pages/AdminDashboard';
+import ChatbotPage from './pages/ChatbotPage';
+import Chatbot from './components/Chatbot';
 
 function App() {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -38,9 +42,13 @@ function App() {
           <Route path="/assessment" element={<Assessment />} />
           <Route path="/analytics" element={<AssessmentAnalytics />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/chatbot" element={<ChatbotPage />} />
         </Routes>
         </main>
         <Footer />
+        
+        {/* Floating Chatbot */}
+        <Chatbot isOpen={isChatbotOpen} onToggle={() => setIsChatbotOpen(!isChatbotOpen)} />
       </div>
     </Router>
   );

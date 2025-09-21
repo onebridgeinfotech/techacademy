@@ -15,7 +15,7 @@ const Login: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      await authService.login(credentials.email, credentials.password);
+      await authService.login(credentials);
       navigate('/assessment'); // Redirect to assessment after successful login
     } catch (err: any) {
       setError(err.message || 'Login failed. Please check your credentials.');
