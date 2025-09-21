@@ -1,0 +1,88 @@
+---
+# TechAcademy Ansible Playbook - Main Site Configuration
+- name: Configure TechAcademy Infrastructure
+  hosts: all
+  become: yes
+  vars:
+    app_name: techacademy
+    app_user: ubuntu
+    app_dir: /opt/techacademy
+    node_version: "18"
+    pm2_version: "latest"
+    
+  pre_tasks:
+    - name: Update system packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+      tags: [system, packages]
+    
+    - name: Install essential packages
+      apt:
+        name:
+          - curl
+          - wget
+          - git
+          - unzip
+          - software-properties-common
+          - apt-transport-https
+          - ca-certificates
+          - gnupg
+          - lsb-release
+          - htop
+          - vim
+          - tree
+        state: present
+      tags: [system, packages]
+
+  roles:
+    - role: nodejs
+      tags: [nodejs]
+    
+    - role: docker
+      tags: [docker]
+    
+    - role: nginx
+      tags: [nginx]
+    
+    - role: postgresql
+      tags: [postgresql]
+    
+    - role: application
+      tags: [application]
+    
+    - role: monitoring
+      tags: [monitoring]
+
+  post_tasks:
+    - name: Create application directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ app_user }}"
+        group: "{{ app_user }}"
+        mode: '0755'
+      loop:
+        - "{{ app_dir }}"
+        - "{{ app_dir }}/logs"
+        - "{{ app_dir }}/uploads"
+        - "/var/log/{{ app_name }}"
+      tags: [application, directories]
+    
+    - name: Set up log rotation
+      template:
+        src: logrotate.j2
+        dest: "/etc/logrotate.d/{{ app_name }}"
+        mode: '0644'
+      tags: [application, logging]
+    
+    - name: Restart services
+      systemd:
+        name: "{{ item }}"
+        state: restarted
+        enabled: yes
+      loop:
+        - nginx
+        - "{{ app_name }}"
+      tags: [services]
+

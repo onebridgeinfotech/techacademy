@@ -1,0 +1,131 @@
+---
+# TechAcademy Application Configuration
+
+- name: Clone TechAcademy repository
+  git:
+    repo: "{{ git_repository }}"
+    dest: "{{ app_dir }}"
+    version: "{{ git_branch }}"
+    force: yes
+  become_user: "{{ app_user }}"
+  tags: [application, git]
+
+- name: Install Node.js dependencies
+  npm:
+    path: "{{ app_dir }}"
+    state: present
+    production: "{{ environment == 'production' }}"
+  become_user: "{{ app_user }}"
+  tags: [application, dependencies]
+
+- name: Create environment file
+  template:
+    src: .env.j2
+    dest: "{{ app_dir }}/.env"
+    mode: '0600'
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+  tags: [application, config]
+
+- name: Build React application
+  npm:
+    path: "{{ app_dir }}"
+    state: present
+    production: yes
+  args:
+    command: run build
+  become_user: "{{ app_user }}"
+  tags: [application, build]
+
+- name: Create PM2 ecosystem configuration
+  template:
+    src: ecosystem.config.js.j2
+    dest: "{{ app_dir }}/ecosystem.config.js"
+    mode: '0644'
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+  tags: [application, pm2]
+
+- name: Create systemd service for TechAcademy
+  template:
+    src: techacademy.service.j2
+    dest: /etc/systemd/system/{{ app_name }}.service
+    mode: '0644'
+  tags: [application, systemd]
+
+- name: Reload systemd daemon
+  systemd:
+    daemon_reload: yes
+  tags: [application, systemd]
+
+- name: Start and enable TechAcademy service
+  systemd:
+    name: "{{ app_name }}"
+    state: started
+    enabled: yes
+  tags: [application, service]
+
+- name: Create deployment script
+  template:
+    src: deploy.sh.j2
+    dest: "{{ app_dir }}/deploy.sh"
+    mode: '0755'
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+  tags: [application, scripts]
+
+- name: Create backup script
+  template:
+    src: backup.sh.j2
+    dest: "{{ app_dir }}/backup.sh"
+    mode: '0755'
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+  tags: [application, scripts]
+
+- name: Create monitoring script
+  template:
+    src: monitor.sh.j2
+    dest: "{{ app_dir }}/monitor.sh"
+    mode: '0755'
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+  tags: [application, scripts]
+
+- name: Set up cron jobs
+  cron:
+    name: "{{ item.name }}"
+    job: "{{ item.job }}"
+    user: "{{ app_user }}"
+    minute: "{{ item.minute }}"
+    hour: "{{ item.hour }}"
+  loop:
+    - name: "Health check"
+      job: "{{ app_dir }}/monitor.sh"
+      minute: "*/5"
+      hour: "*"
+    - name: "Backup database"
+      job: "{{ app_dir }}/backup.sh"
+      minute: "0"
+      hour: "2"
+  tags: [application, cron]
+
+- name: Wait for application to start
+  wait_for:
+    port: 3000
+    host: localhost
+    delay: 10
+    timeout: 60
+  tags: [application, health]
+
+- name: Verify application is running
+  uri:
+    url: "http://localhost:3000/health"
+    method: GET
+  register: health_check
+  tags: [application, health]
+
+- name: Display application status
+  debug:
+    msg: "Application health check: {{ health_check.status }}"
+

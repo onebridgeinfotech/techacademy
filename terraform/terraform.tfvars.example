@@ -1,0 +1,37 @@
+# TechAcademy Infrastructure - Variables Example
+# Copy this file to terraform.tfvars and update the values
+
+# AWS Configuration
+aws_region = "us-west-2"
+environment = "dev"  # dev, staging, or prod
+
+# Project Configuration
+project_name = "techacademy"
+
+# Network Configuration
+vpc_cidr = "10.0.0.0/16"
+public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs = ["10.0.10.0/24", "10.0.20.0/24"]
+ssh_cidr = "0.0.0.0/0"  # Restrict this to your IP for production
+
+# SSH Key Configuration
+public_key_path = "~/.ssh/id_rsa.pub"
+
+# Instance Configuration
+instance_type = "t3.micro"  # t3.micro for dev, t3.small+ for prod
+volume_size = 20
+
+# Database Configuration
+db_instance_class = "db.t3.micro"  # db.t3.micro for dev, db.t3.small+ for prod
+db_allocated_storage = 20
+db_max_allocated_storage = 100
+db_name = "techacademy"
+db_username = "techacademy"
+db_password = "your-secure-password-here"  # Change this!
+
+# Environment-specific overrides
+dev_instance_type = "t3.micro"
+prod_instance_type = "t3.small"
+dev_db_instance_class = "db.t3.micro"
+prod_db_instance_class = "db.t3.small"
+

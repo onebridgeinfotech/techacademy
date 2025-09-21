@@ -52,30 +52,37 @@ const Header: React.FC = () => {
             })}
           </nav>
 
-          {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/apply"
-              className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-200"
-            >
-              <Award className="w-4 h-4" />
-              <span>Apply Now</span>
-            </Link>
-            <Link
-              to="/mentor-application"
-              className="flex items-center space-x-2 bg-secondary-600 text-white px-4 py-2 rounded-lg hover:bg-secondary-700 transition-colors duration-200"
-            >
-              <Users className="w-4 h-4" />
-              <span>Become a Mentor</span>
-            </Link>
-            <Link
-              to="/login"
-              className="flex items-center space-x-2 bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200"
-            >
-              <User className="w-4 h-4" />
-              <span>Login</span>
-            </Link>
-          </div>
+                  {/* Action Buttons */}
+                  <div className="hidden md:flex items-center space-x-4">
+                    <Link
+                      to="/assessment"
+                      className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-200"
+                    >
+                      <Award className="w-4 h-4" />
+                      <span>Start Assessment</span>
+                    </Link>
+                    <Link
+                      to="/apply"
+                      className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                    >
+                      <Award className="w-4 h-4" />
+                      <span>Apply Now</span>
+                    </Link>
+                    <Link
+                      to="/mentor-application"
+                      className="flex items-center space-x-2 bg-secondary-600 text-white px-4 py-2 rounded-lg hover:bg-secondary-700 transition-colors duration-200"
+                    >
+                      <Users className="w-4 h-4" />
+                      <span>Become a Mentor</span>
+                    </Link>
+                    <Link
+                      to="/login"
+                      className="flex items-center space-x-2 bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200"
+                    >
+                      <User className="w-4 h-4" />
+                      <span>Login</span>
+                    </Link>
+                  </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -114,14 +121,22 @@ const Header: React.FC = () => {
                   </Link>
                 );
               })}
-              <Link
-                to="/apply"
-                className="flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 transition-colors duration-200 mt-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Award className="w-5 h-5" />
-                <span>Apply Now</span>
-              </Link>
+                      <Link
+                        to="/assessment"
+                        className="flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 transition-colors duration-200 mt-4"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Award className="w-5 h-5" />
+                        <span>Start Assessment</span>
+                      </Link>
+                      <Link
+                        to="/apply"
+                        className="flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200 mt-2"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Award className="w-5 h-5" />
+                        <span>Apply Now</span>
+                      </Link>
               <Link
                 to="/mentor-application"
                 className="flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium text-white bg-secondary-600 hover:bg-secondary-700 transition-colors duration-200 mt-2"

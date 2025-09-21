@@ -1,0 +1,71 @@
+---
+# Docker Installation and Configuration
+
+- name: Add Docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags: [docker, repository]
+
+- name: Add Docker repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+    update_cache: yes
+  tags: [docker, repository]
+
+- name: Install Docker packages
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: present
+  tags: [docker, install]
+
+- name: Start and enable Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+  tags: [docker, service]
+
+- name: Add user to docker group
+  user:
+    name: "{{ app_user }}"
+    groups: docker
+    append: yes
+  tags: [docker, user]
+
+- name: Create Docker daemon configuration
+  copy:
+    content: |
+      {
+        "log-driver": "json-file",
+        "log-opts": {
+          "max-size": "10m",
+          "max-file": "3"
+        },
+        "storage-driver": "overlay2"
+      }
+    dest: /etc/docker/daemon.json
+    mode: '0644'
+  tags: [docker, config]
+
+- name: Restart Docker service
+  systemd:
+    name: docker
+    state: restarted
+  tags: [docker, service]
+
+- name: Verify Docker installation
+  command: docker --version
+  register: docker_version_output
+  changed_when: false
+  tags: [docker, verify]
+
+- name: Display Docker version
+  debug:
+    msg: "Docker version: {{ docker_version_output.stdout }}"
+
