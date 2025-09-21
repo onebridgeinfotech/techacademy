@@ -36,7 +36,7 @@ export interface ResumeData {
 export interface Question {
   id: string;
   question: string;
-  type: 'technical' | 'general' | 'resume_based';
+  type: 'technical' | 'general' | 'resume_based' | 'communication' | 'coding';
   difficulty: 'easy' | 'medium' | 'hard';
   category: string;
 }

@@ -251,7 +251,7 @@ const Assessment: React.FC = () => {
           ...assessmentData!.feedback,
           round3: result.feedback
         },
-        status: 'completed'
+        status: 'completed' as const
       };
 
       setAssessmentData(updatedData);

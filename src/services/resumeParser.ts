@@ -105,7 +105,7 @@ Data Analysis Tool - Python-based data visualization`;
       }
     });
 
-    return [...new Set(foundSkills)];
+    return Array.from(new Set(foundSkills));
   }
 
   private extractExperience(text: string): string[] {

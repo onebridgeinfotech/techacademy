@@ -213,22 +213,22 @@ int main() {
     testCases: TestCase[]
   ): Promise<any> {
     const results = [];
-    let passed = 0;
+    let passedCount = 0;
 
     for (const testCase of testCases) {
       try {
         const result = await this.executeWithJudge0(code, language, [testCase]);
-        const passed = result.success && result.output.trim() === testCase.expected.trim();
+        const testPassed = result.success && result.output.trim() === testCase.expected.trim();
         
         results.push({
           testCase,
-          passed,
+          passed: testPassed,
           actualOutput: result.output,
           expectedOutput: testCase.expected
         });
 
-        if (passed) {
-          passed++;
+        if (testPassed) {
+          passedCount++;
         }
       } catch (error) {
         results.push({
@@ -241,7 +241,7 @@ int main() {
     }
 
     return {
-      passed,
+      passed: passedCount,
       total: testCases.length,
       details: results
     };

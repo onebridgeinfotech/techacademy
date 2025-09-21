@@ -422,3 +422,4 @@ const VideoRecorder: React.FC<VideoRecorderProps> = ({
 };
 
 export default VideoRecorder;
+
