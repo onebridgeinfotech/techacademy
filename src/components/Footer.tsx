@@ -22,26 +22,26 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">TechAcademy</span>
+              <span className="text-xl font-semibold">TechAcademy</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Empowering the next generation of tech professionals with cutting-edge education 
               and hands-on experience in modern technologies.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -52,27 +52,28 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/courses" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  All Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                <Link to="/about" className="text-gray-300 hover:text-white transition-colors text-sm">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Contact
+                <Link to="/courses" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Programs
                 </Link>
               </li>
               <li>
-                <Link to="/login" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Student Login
+                <Link to="/internships" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Internships
+                </Link>
+              </li>
+              <li>
+                <Link to="/placements" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Placements
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -83,28 +84,29 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold">Programs</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Web Development
-                </a>
+                <Link to="/courses" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Digital Transformation
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Data Science
-                </a>
+                <Link to="/courses" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Cloud & DevOps
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Mobile Development
-                </a>
+                <Link to="/courses" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Cyber Security
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-primary-400 transition-colors flex items-center group">
-                  <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Cloud Computing
-                </a>
+                <Link to="/courses" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Project Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/assessment" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Assessment
+                </Link>
               </li>
             </ul>
           </div>
@@ -113,44 +115,38 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Contact Info</h3>
             <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-gray-300 text-sm">
-                    123 Tech Street<br />
-                    Innovation District<br />
-                    San Francisco, CA 94105
-                  </p>
-                </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-4 h-4 text-gray-400" />
+                <span className="text-gray-300 text-sm">info@techacademy.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">+1 (555) 123-4567</p>
+                <Phone className="w-4 h-4 text-gray-400" />
+                <span className="text-gray-300 text-sm">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">info@techacademy.com</p>
+                <MapPin className="w-4 h-4 text-gray-400" />
+                <span className="text-gray-300 text-sm">123 Tech Street, Silicon Valley, CA 94000</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-gray-400 text-sm">
               © {currentYear} TechAcademy. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            </div>
+            <div className="flex space-x-6">
+              <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              </Link>
+              <Link to="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              </Link>
+              <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors text-sm">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -160,4 +156,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-

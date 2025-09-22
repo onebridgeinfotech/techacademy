@@ -13,20 +13,19 @@ const Header: React.FC = () => {
     { name: 'Internships', href: '/internships' },
     { name: 'Placements', href: '/placements' },
     { name: 'Sponsorship', href: '/sponsorship' },
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'AI Assistant', href: '/chatbot' }
+    { name: 'Contact Us', href: '/contact' }
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg group-hover:scale-105 transition-transform duration-300">
+            <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg group-hover:scale-105 transition-transform duration-300">
               <span className="text-white font-bold text-lg">T</span>
             </div>
-            <span className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+            <span className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
               TechAcademy
             </span>
           </Link>
@@ -39,10 +38,10 @@ const Header: React.FC = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                      : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }`}
                 >
                   {item.name}
@@ -55,25 +54,25 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-3">
             <Link
               to="/assessment"
-              className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200"
             >
               Start Assessment
             </Link>
             <Link
               to="/apply"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200"
             >
               Apply Now
             </Link>
             <Link
               to="/mentor-application"
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200"
             >
               Become a Mentor
             </Link>
             <Link
               to="/login"
-              className="text-gray-700 hover:text-blue-600 px-4 py-2 font-medium transition-colors duration-300"
+              className="text-gray-600 hover:text-blue-600 px-4 py-2 font-medium transition-colors duration-200"
             >
               Login
             </Link>

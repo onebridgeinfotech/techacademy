@@ -1,188 +1,96 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Search, 
-  Filter, 
+  Code, 
+  Cloud, 
+  Shield, 
+  Target, 
+  Star, 
   Clock, 
   Users, 
-  Star, 
-  ArrowRight,
-  Code,
-  Database,
-  Smartphone,
-  Cloud,
   CheckCircle,
-  Play,
-  Download,
-  Shield,
-  FolderOpen
+  ArrowRight,
+  Search,
+  Filter
 } from 'lucide-react';
 
 const Courses: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const categories = [
-    { id: 'all', name: 'All Courses', icon: Code },
-    { id: 'digital', name: 'Digital Transformation', icon: Code },
-    { id: 'cloud', name: 'Cloud & DevOps', icon: Cloud },
-    { id: 'security', name: 'Cyber Security', icon: Shield },
-    { id: 'management', name: 'Project Management', icon: FolderOpen },
-    { id: 'web', name: 'Web Development', icon: Code },
-    { id: 'data', name: 'Data Science', icon: Database }
-  ];
-
   const courses = [
     {
       id: 1,
-      title: 'Full-Stack Web Development Bootcamp',
-      description: 'Master modern web technologies including React, Node.js, MongoDB, and deployment strategies. Build real-world projects and create a professional portfolio.',
-      category: 'web',
+      title: 'Digital Transformation',
+      description: 'Master modern digital technologies and transform businesses with cutting-edge solutions',
       duration: '6 months',
       students: '1,200+',
       rating: 4.9,
-      price: '$2,999',
-      originalPrice: '$3,999',
-      level: 'Beginner to Advanced',
-      instructor: 'Sarah Johnson',
-      image: '/api/placeholder/400/250',
-      features: [
-        'React & Redux',
-        'Node.js & Express',
-        'MongoDB & Mongoose',
-        'RESTful APIs',
-        'Authentication & Security',
-        'Deployment & DevOps'
-      ],
-      modules: 12,
-      projects: 8,
-      certificate: true
+      price: 'Free',
+      icon: Code,
+      color: 'from-blue-500 to-blue-600',
+      category: 'development',
+      features: ['React & Node.js', 'Database Design', 'API Development', 'Cloud Deployment'],
+      badge: 'Most Popular',
+      instructor: 'Dr. Sarah Johnson',
+      level: 'Beginner to Intermediate'
     },
     {
       id: 2,
-      title: 'Data Science & Machine Learning',
-      description: 'Learn Python, pandas, scikit-learn, and TensorFlow. Analyze data, build predictive models, and create data visualizations.',
-      category: 'data',
-      duration: '8 months',
-      students: '850+',
-      rating: 4.8,
-      price: '$3,499',
-      originalPrice: '$4,499',
-      level: 'Intermediate',
-      instructor: 'Dr. Michael Chen',
-      image: '/api/placeholder/400/250',
-      features: [
-        'Python & Pandas',
-        'Machine Learning',
-        'Deep Learning',
-        'Data Visualization',
-        'Statistics & Probability',
-        'Big Data Tools'
-      ],
-      modules: 16,
-      projects: 10,
-      certificate: true
-    },
-    {
-      id: 3,
-      title: 'Mobile App Development',
-      description: 'Build iOS and Android apps using React Native and Flutter. Learn app design, state management, and app store deployment.',
-      category: 'mobile',
-      duration: '5 months',
-      students: '650+',
-      rating: 4.7,
-      price: '$2,799',
-      originalPrice: '$3,299',
-      level: 'Beginner',
-      instructor: 'Alex Rodriguez',
-      image: '/api/placeholder/400/250',
-      features: [
-        'React Native',
-        'Flutter & Dart',
-        'iOS & Android',
-        'App Design',
-        'State Management',
-        'App Store Deployment'
-      ],
-      modules: 10,
-      projects: 6,
-      certificate: true
-    },
-    {
-      id: 4,
-      title: 'Cloud Computing & DevOps',
-      description: 'Master AWS, Docker, Kubernetes, and CI/CD pipelines. Learn infrastructure as code and cloud security best practices.',
-      category: 'cloud',
+      title: 'Cloud & DevOps',
+      description: 'Master AWS, Docker, Kubernetes, and CI/CD pipelines for modern infrastructure',
       duration: '7 months',
       students: '920+',
       rating: 4.9,
-      price: '$3,299',
-      originalPrice: '$4,199',
-      level: 'Intermediate',
-      instructor: 'Jennifer Lee',
-      image: '/api/placeholder/400/250',
-      features: [
-        'AWS & Azure',
-        'Docker & Kubernetes',
-        'CI/CD Pipelines',
-        'Infrastructure as Code',
-        'Monitoring & Logging',
-        'Security & Compliance'
-      ],
-      modules: 14,
-      projects: 7,
-      certificate: true
+      price: '₹15,999',
+      icon: Cloud,
+      color: 'from-green-500 to-green-600',
+      category: 'cloud',
+      features: ['AWS & Azure', 'Docker & K8s', 'CI/CD', 'Infrastructure'],
+      badge: 'High Demand',
+      instructor: 'Michael Chen',
+      level: 'Intermediate to Advanced'
     },
     {
-      id: 5,
-      title: 'Frontend Development Mastery',
-      description: 'Deep dive into modern frontend technologies including React, Vue.js, TypeScript, and advanced CSS techniques.',
-      category: 'web',
-      duration: '4 months',
-      students: '1,100+',
+      id: 3,
+      title: 'Cyber Security',
+      description: 'Learn ethical hacking, security protocols, and threat analysis for enterprise security',
+      duration: '8 months',
+      students: '750+',
       rating: 4.8,
-      price: '$2,499',
-      originalPrice: '$2,999',
-      level: 'Beginner to Intermediate',
-      instructor: 'David Kim',
-      image: '/api/placeholder/400/250',
-      features: [
-        'React & Vue.js',
-        'TypeScript',
-        'Advanced CSS',
-        'Web Performance',
-        'Testing & Debugging',
-        'Build Tools'
-      ],
-      modules: 8,
-      projects: 5,
-      certificate: true
+      price: '₹18,999',
+      icon: Shield,
+      color: 'from-red-500 to-red-600',
+      category: 'security',
+      features: ['Ethical Hacking', 'Security Protocols', 'Threat Analysis', 'Compliance'],
+      badge: 'Certified',
+      instructor: 'Alex Rodriguez',
+      level: 'Intermediate to Advanced'
     },
     {
-      id: 6,
-      title: 'Backend Development with Python',
-      description: 'Learn Django, FastAPI, PostgreSQL, and microservices architecture. Build scalable backend systems and APIs.',
-      category: 'web',
+      id: 4,
+      title: 'Project Management',
+      description: 'Master Agile, Scrum, and modern project management tools for leadership roles',
       duration: '5 months',
-      students: '780+',
+      students: '650+',
       rating: 4.7,
-      price: '$2,699',
-      originalPrice: '$3,299',
-      level: 'Intermediate',
-      instructor: 'Emily Watson',
-      image: '/api/placeholder/400/250',
-      features: [
-        'Django & FastAPI',
-        'PostgreSQL',
-        'Microservices',
-        'API Design',
-        'Authentication',
-        'Testing & Deployment'
-      ],
-      modules: 10,
-      projects: 6,
-      certificate: true
+      price: '₹12,999',
+      icon: Target,
+      color: 'from-purple-500 to-purple-600',
+      category: 'management',
+      features: ['Agile & Scrum', 'Project Tools', 'Team Leadership', 'Risk Management'],
+      badge: 'Leadership',
+      instructor: 'Emily Davis',
+      level: 'All Levels'
     }
+  ];
+
+  const categories = [
+    { id: 'all', name: 'All Programs' },
+    { id: 'development', name: 'Development' },
+    { id: 'cloud', name: 'Cloud & DevOps' },
+    { id: 'security', name: 'Security' },
+    { id: 'management', name: 'Management' }
   ];
 
   const filteredCourses = courses.filter(course => {
@@ -193,221 +101,144 @@ const Courses: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="pt-20 pb-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Explore Our Courses
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Our Programs
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our comprehensive range of tech courses designed to launch your career
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Choose from our comprehensive range of technology programs designed to launch your career
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <div className="flex flex-col lg:flex-row gap-4">
-            {/* Search */}
-            <div className="flex-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search courses..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                />
-              </div>
+      {/* Search and Filter Section */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search programs..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+              />
             </div>
-
-            {/* Category Filter */}
             <div className="flex flex-wrap gap-2">
-              {categories.map((category) => {
-                const Icon = category.icon;
-                return (
-                  <button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
-                      selectedCategory === category.id
-                        ? 'bg-primary-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span>{category.name}</span>
-                  </button>
-                );
-              })}
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                    selectedCategory === category.id
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-300'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Courses Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredCourses.map((course) => (
-            <div key={course.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              {/* Course Image */}
-              <div className="relative">
-                <div className="h-48 bg-gradient-to-br from-primary-100 to-primary-200 rounded-t-xl flex items-center justify-center">
-                  <div className="text-6xl text-primary-600">
-                    {course.category === 'web' && <Code />}
-                    {course.category === 'data' && <Database />}
-                    {course.category === 'mobile' && <Smartphone />}
-                    {course.category === 'cloud' && <Cloud />}
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {course.level}
-                  </span>
-                </div>
-                {course.originalPrice && (
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium">
-                      Save ${parseInt(course.originalPrice.replace('$', '')) - parseInt(course.price.replace('$', ''))}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-6">
-                {/* Course Info */}
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {course.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {course.description}
-                  </p>
-                </div>
-
-                {/* Course Stats */}
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {course.duration}
+      {/* Courses Grid */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCourses.map((course) => (
+              <div key={course.id} className="group relative">
+                <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1">
+                  {course.badge && (
+                    <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+                      {course.badge}
                     </div>
-                    <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-1" />
-                      {course.students}
-                    </div>
+                  )}
+                  
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${course.color} mb-6`}>
+                    <course.icon className="h-8 w-8 text-white" />
                   </div>
-                  <div className="flex items-center">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current mr-1" />
-                    {course.rating}
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="mb-4">
-                  <div className="grid grid-cols-2 gap-2">
-                    {course.features.slice(0, 4).map((feature, index) => (
-                      <div key={index} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
-                        {feature}
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{course.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{course.description}</p>
+                  
+                  <div className="space-y-3 mb-6">
+                    {course.features.map((feature, index) => (
+                      <div key={index} className="flex items-center text-gray-600">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
-                </div>
-
-                {/* Course Details */}
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
-                  <div className="flex items-center space-x-4">
-                    <span>{course.modules} Modules</span>
-                    <span>{course.projects} Projects</span>
-                    {course.certificate && (
-                      <span className="flex items-center text-green-600">
-                        <CheckCircle className="w-4 h-4 mr-1" />
-                        Certificate
-                      </span>
-                    )}
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-yellow-500">
+                        <Star className="h-4 w-4 fill-current" />
+                        <span className="ml-1 text-gray-900 font-semibold">{course.rating}</span>
+                      </div>
+                      <div className="text-gray-500 text-sm">{course.students} students</div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="text-2xl font-bold text-gray-900">{course.price}</div>
+                      <div className="text-gray-500 text-sm">{course.duration}</div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <span>Instructor: {course.instructor}</span>
+                      <span>{course.level}</span>
+                    </div>
                   </div>
-                </div>
-
-                {/* Price and CTA */}
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-2xl font-bold text-gray-900">{course.price}</span>
-                    {course.originalPrice && (
-                      <span className="text-lg text-gray-500 line-through ml-2">{course.originalPrice}</span>
-                    )}
-                  </div>
+                  
                   <Link
-                    to={`/courses/${course.id}`}
-                    className="inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors"
+                    to="/apply"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-200 flex items-center justify-center group"
                   >
-                    View Details
-                    <ArrowRight className="ml-1 w-4 h-4" />
+                    Enroll Now
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
-
-                {/* Instructor */}
-                <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-sm font-medium text-gray-600">
-                          {course.instructor.split(' ').map(n => n[0]).join('')}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">Instructor</p>
-                        <p className="text-xs text-gray-500">{course.instructor}</p>
-                      </div>
-                    </div>
-                    <button className="text-primary-600 hover:text-primary-700 transition-colors">
-                      <Play className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* No Results */}
-        {filteredCourses.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
-              <Search className="w-16 h-16 mx-auto" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No courses found</h3>
-            <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+            ))}
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <div className="mt-16 bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-            Can't Find What You're Looking For?
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-600">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to Start Your Tech Journey?
           </h2>
-          <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-            Our team of experts can help you choose the right course for your career goals. 
-            Get personalized recommendations and guidance.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of students who have transformed their careers with TechAcademy
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+              to="/assessment"
+              className="group bg-white text-blue-600 px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
             >
-              Talk to an Advisor
-              <ArrowRight className="ml-2 w-4 h-4" />
+              Start Assessment
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <button className="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-700 transition-colors">
-              <Download className="mr-2 w-4 h-4" />
-              Download Brochure
-            </button>
+            <Link
+              to="/apply"
+              className="group bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+            >
+              Apply Now
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

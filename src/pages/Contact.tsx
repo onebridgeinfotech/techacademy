@@ -5,346 +5,267 @@ import {
   MapPin, 
   Clock, 
   Send,
-  MessageCircle,
-  Calendar,
   CheckCircle,
-  ArrowRight
+  AlertCircle
 } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     subject: '',
-    message: '',
-    interest: ''
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
+    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-          interest: ''
-        });
-      }, 3000);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
     }, 2000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const contactInfo = [
     {
-      icon: MapPin,
-      title: 'Visit Us',
-      details: ['123 Tech Street', 'Innovation District', 'San Francisco, CA 94105'],
-      action: 'Get Directions'
+      icon: Mail,
+      title: 'Email',
+      details: 'info@techacademy.com',
+      description: 'Send us an email anytime'
     },
     {
       icon: Phone,
-      title: 'Call Us',
-      details: ['+1 (555) 123-4567', '+1 (555) 123-4568'],
-      action: 'Call Now'
+      title: 'Phone',
+      details: '+1 (555) 123-4567',
+      description: 'Mon-Fri from 9am to 6pm'
     },
     {
-      icon: Mail,
-      title: 'Email Us',
-      details: ['info@techacademy.com', 'support@techacademy.com'],
-      action: 'Send Email'
+      icon: MapPin,
+      title: 'Address',
+      details: '123 Tech Street, Silicon Valley, CA 94000',
+      description: 'Visit our campus'
     },
     {
       icon: Clock,
-      title: 'Office Hours',
-      details: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 4:00 PM'],
-      action: 'Schedule Call'
-    }
-  ];
-
-  const faqs = [
-    {
-      question: 'What courses do you offer?',
-      answer: 'We offer comprehensive courses in Web Development, Data Science, Mobile Development, and Cloud Computing. Each program is designed with industry input and includes hands-on projects.'
-    },
-    {
-      question: 'How long are the courses?',
-      answer: 'Our courses range from 4-8 months depending on the program. We offer both full-time and part-time options to accommodate different schedules.'
-    },
-    {
-      question: 'Do you provide job placement assistance?',
-      answer: 'Yes! We have a 95% job placement rate and provide career support including resume reviews, interview preparation, and connections to our network of 50+ industry partners.'
-    },
-    {
-      question: 'What are the prerequisites?',
-      answer: 'Most of our courses are designed for beginners, though some advanced programs may require basic programming knowledge. We offer preparatory courses for those who need them.'
-    },
-    {
-      question: 'Do you offer financial aid?',
-      answer: 'Yes, we offer various financing options including payment plans, scholarships, and income-share agreements. Contact our admissions team to learn more about available options.'
+      title: 'Hours',
+      details: 'Mon-Fri: 9am-6pm',
+      description: 'We\'re here to help'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="pt-20 pb-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Get in Touch
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Contact Us
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Have questions about our courses or programs? We're here to help you start your tech career journey.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Get in touch with our team. We're here to help you start your tech journey.
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+      {/* Contact Info Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {contactInfo.map((info, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-200">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-2xl mb-6">
+                  <info.icon className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{info.title}</h3>
+                <p className="text-gray-900 font-medium mb-2">{info.details}</p>
+                <p className="text-gray-600 text-sm">{info.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Send us a Message
               </h2>
-              
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                  <p className="text-gray-600">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                  </div>
+              <p className="text-gray-600 mb-8">
+                Have a question about our programs? Want to learn more about admissions? 
+                We'd love to hear from you.
+              </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">
-                        Area of Interest
-                      </label>
-                      <select
-                        id="interest"
-                        name="interest"
-                        value={formData.interest}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      >
-                        <option value="">Select an option</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="data-science">Data Science</option>
-                        <option value="mobile-development">Mobile Development</option>
-                        <option value="cloud-computing">Cloud Computing</option>
-                        <option value="general-inquiry">General Inquiry</option>
-                      </select>
-                    </div>
-                  </div>
-
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject *
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Name
                     </label>
                     <input
                       type="text"
-                      id="subject"
-                      name="subject"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       required
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                      placeholder="What's this about?"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                      placeholder="Your full name"
                     />
                   </div>
-
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={6}
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                      placeholder="Tell us more about your inquiry..."
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                      placeholder="your.email@example.com"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full flex items-center justify-center px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center">
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Sending...
-                      </div>
-                    ) : (
-                      <div className="flex items-center">
-                        <Send className="mr-2 w-5 h-5" />
-                        Send Message
-                      </div>
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                    placeholder="What's this about?"
+                  />
+                </div>
 
-          {/* Contact Info & FAQ */}
-          <div className="space-y-8">
-            {/* Contact Information */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-5 h-5 text-primary-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 mb-1">{info.title}</h4>
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-gray-600 text-sm">{detail}</p>
-                        ))}
-                        <button className="text-primary-600 hover:text-primary-700 text-sm font-medium mt-1 transition-colors">
-                          {info.action}
-                          <ArrowRight className="inline w-3 h-3 ml-1" />
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                    placeholder="Tell us more about your inquiry..."
+                  />
+                </div>
 
-            {/* Quick Actions */}
-            <div className="bg-gradient-to-r from-primary-600 to-primary-800 rounded-xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-4">Quick Actions</h3>
-              <div className="space-y-3">
-                <button className="w-full flex items-center justify-center px-4 py-3 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-colors">
-                  <Calendar className="mr-2 w-5 h-5" />
-                  Schedule a Call
-                </button>
-                <button className="w-full flex items-center justify-center px-4 py-3 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-colors">
-                  <MessageCircle className="mr-2 w-5 h-5" />
-                  Live Chat
-                </button>
-                <button className="w-full flex items-center justify-center px-4 py-3 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-colors">
-                  <Mail className="mr-2 w-5 h-5" />
-                  Email Support
-                </button>
-              </div>
-            </div>
-
-            {/* FAQ */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
-              <div className="space-y-4">
-                {faqs.slice(0, 3).map((faq, index) => (
-                  <div key={index} className="border-b border-gray-100 pb-4 last:border-b-0">
-                    <h4 className="font-semibold text-gray-900 mb-2">{faq.question}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    <span className="text-green-700">Message sent successfully! We'll get back to you soon.</span>
                   </div>
-                ))}
-                <button className="text-primary-600 hover:text-primary-700 text-sm font-medium transition-colors">
-                  View All FAQs
-                  <ArrowRight className="inline w-3 h-3 ml-1" />
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center">
+                    <AlertCircle className="h-5 w-5 text-red-500 mr-3" />
+                    <span className="text-red-700">Something went wrong. Please try again.</span>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Send Message
+                    </>
+                  )}
                 </button>
+              </form>
+            </div>
+
+            {/* Additional Info */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Why Choose TechAcademy?
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Industry-Aligned Curriculum</h4>
+                      <p className="text-gray-600 text-sm">Our programs are designed with input from top tech companies</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Expert Mentors</h4>
+                      <p className="text-gray-600 text-sm">Learn from industry professionals with 10+ years experience</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Career Support</h4>
+                      <p className="text-gray-600 text-sm">Get help with job placement and career guidance</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Flexible Learning</h4>
+                      <p className="text-gray-600 text-sm">Study at your own pace with 24/7 access to materials</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Quick Response
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  We typically respond to inquiries within 24 hours during business days.
+                </p>
+                <div className="text-sm text-gray-500">
+                  <p>• Admissions questions: 1-2 business days</p>
+                  <p>• Technical support: Same day</p>
+                  <p>• General inquiries: 1-3 business days</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Map Section */}
-        <div className="mt-16 bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="h-64 bg-gradient-to-r from-primary-100 to-primary-200 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-12 h-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Visit Our Campus</h3>
-              <p className="text-gray-600">123 Tech Street, Innovation District, San Francisco, CA 94105</p>
-              <button className="mt-4 inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors">
-                Get Directions
-                <ArrowRight className="ml-1 w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
 
 export default Contact;
-
