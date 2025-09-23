@@ -6,7 +6,7 @@ echo.
 REM Configuration
 set EC2_IP=13.235.246.199
 set EC2_USER=ubuntu
-set KEY_PATH=~/.ssh/your-key.pem
+set KEY_PATH=~/.ssh/obta.pem
 set GIT_REPO=https://github.com/onebridgeinfotech/techacademy
 
 echo 📋 Configuration:
