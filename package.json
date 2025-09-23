@@ -28,6 +28,8 @@
     "deploy-all": "chmod +x deploy-all.sh && ./deploy-all.sh",
     "clean-deploy": "chmod +x clean-and-deploy.sh && ./clean-and-deploy.sh",
     "quick-deploy": "chmod +x quick-clean-deploy.sh && ./quick-clean-deploy.sh",
+    "deploy-windows": "deploy-windows.bat",
+    "quick-deploy-windows": "quick-deploy-windows.bat",
     "setup-git": "chmod +x setup-git-repo.sh && ./setup-git-repo.sh",
     "watch": "chmod +x watch-and-deploy.sh && ./watch-and-deploy.sh",
     "setup-hooks": "chmod +x git-hooks/setup-hooks.sh && ./git-hooks/setup-hooks.sh"
