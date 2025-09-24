@@ -15,13 +15,11 @@ import {
   Target,
   Shield,
   Rocket,
-  Play,
   GraduationCap,
-  BookOpen,
-  Lightbulb,
   Heart,
   MessageCircle,
-  Briefcase
+  Briefcase,
+  Send
 } from 'lucide-react';
 
 const Home: React.FC = () => {
@@ -118,7 +116,6 @@ const Home: React.FC = () => {
       duration: '6 months',
       students: '1,200+',
       rating: 4.9,
-      price: 'Free',
       icon: Code,
       color: 'from-blue-500 to-blue-600',
       features: ['React & Node.js', 'Database Design', 'API Development', 'Cloud Deployment'],
@@ -131,7 +128,6 @@ const Home: React.FC = () => {
       duration: '7 months',
       students: '920+',
       rating: 4.9,
-      price: '₹15,999',
       icon: Cloud,
       color: 'from-green-500 to-green-600',
       features: ['AWS & Azure', 'Docker & K8s', 'CI/CD', 'Infrastructure'],
@@ -144,7 +140,6 @@ const Home: React.FC = () => {
       duration: '8 months',
       students: '750+',
       rating: 4.8,
-      price: '₹18,999',
       icon: Shield,
       color: 'from-red-500 to-red-600',
       features: ['Ethical Hacking', 'Security Protocols', 'Threat Analysis', 'Compliance'],
@@ -157,101 +152,556 @@ const Home: React.FC = () => {
       duration: '5 months',
       students: '650+',
       rating: 4.7,
-      price: '₹12,999',
       icon: Target,
       color: 'from-purple-500 to-purple-600',
       features: ['Agile & Scrum', 'Project Tools', 'Team Leadership', 'Risk Management'],
       badge: 'Leadership'
+    },
+    {
+      id: 5,
+      title: 'Generative AI & AI',
+      description: 'Master cutting-edge AI technologies including ChatGPT, GPT-4, and generative AI models for real-world applications',
+      duration: '9 months',
+      students: '850+',
+      rating: 4.9,
+      icon: Zap,
+      color: 'from-indigo-500 to-indigo-600',
+      features: ['Generative AI', 'ChatGPT Integration', 'AI Model Training', 'Real AI Projects'],
+      badge: 'AI Future'
+    },
+    {
+      id: 6,
+      title: 'Full Stack Development',
+      description: 'Master both frontend and backend development with modern frameworks and technologies',
+      duration: '8 months',
+      students: '1,100+',
+      rating: 4.8,
+      icon: Code,
+      color: 'from-orange-500 to-orange-600',
+      features: ['React & Node.js', 'Database Design', 'API Development', 'Cloud Deployment'],
+      badge: 'Most Popular'
     }
   ];
 
-  const features = [
-    {
-      icon: Users,
-      title: 'Expert Mentors',
-      description: 'Learn from industry professionals with 10+ years of experience in top tech companies',
-      color: 'text-blue-600'
-    },
-    {
-      icon: Award,
-      title: 'Industry Certifications',
-      description: 'Get certified by top tech companies and recognized institutions worldwide',
-      color: 'text-green-600'
-    },
-    {
-      icon: Clock,
-      title: 'Flexible Learning',
-      description: 'Study at your own pace with 24/7 access to course materials and mentorship',
-      color: 'text-purple-600'
-    },
-    {
-      icon: Globe,
-      title: 'Global Opportunities',
-      description: 'Connect with international companies and remote work opportunities worldwide',
-      color: 'text-orange-600'
-    }
-  ];
-
-  const stats = [
-    { number: '10,000+', label: 'Students Trained', icon: Users },
-    { number: '95%', label: 'Success Rate', icon: TrendingUp },
-    { number: '500+', label: 'Industry Partners', icon: Globe },
-    { number: '50+', label: 'Expert Mentors', icon: Award }
-  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-pink-600/5"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center fade-in-up">
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
-              <span className="text-blue-700 font-semibold text-sm">🚀 Launch Your Tech Career</span>
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                TechAcademy
-              </span>
+    <div className="min-h-screen">
+      {/* Hero Section - Dark Blue Background */}
+      <section id="hero" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 pt-28 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+              Bridge the Gap Between
             </h1>
-            <p className="text-xl md:text-2xl mb-12 text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Master cutting-edge technologies with our comprehensive programs. 
-              From beginner to expert, we'll guide you through your tech journey.
+            <h1 className="text-5xl md:text-7xl font-bold text-yellow-400 mb-8 leading-tight">
+              Academics & Industry
+            </h1>
+
+            {/* Description */}
+            <p className="text-xl md:text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed">
+              Transform your career through project-led training, real-world internships, and industry mentorship that guarantees job readiness.
             </p>
-            
+
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Link
-                to="/assessment"
-                className="btn-gradient text-lg px-8 py-4 flex items-center space-x-2 group"
+                to="/signup"
+                className="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center group"
               >
-                <Zap className="h-5 w-5" />
-                <span>Start Assessment</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <span>Join Next Cohort</span>
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/apply"
-                className="btn-primary text-lg px-8 py-4 flex items-center space-x-2 group"
+                to="/signup"
+                className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center group"
               >
-                <Award className="h-5 w-5" />
                 <span>Apply Now</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center slide-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl mb-4 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <stat.icon className="h-10 w-10 text-blue-600" />
+
+            {/* Feature Highlights */}
+            <div className="flex flex-wrap justify-center items-center gap-8 text-white text-lg">
+              <div className="flex items-center">
+                <span className="text-yellow-400 mr-2">✨</span>
+                <span>Internship-to-Job Pathway</span>
+              </div>
+              <div className="hidden sm:block text-blue-300">•</div>
+              <div className="flex items-center">
+                <Code className="w-5 h-5 text-blue-400 mr-2" />
+                <span>Live Projects</span>
+              </div>
+              <div className="hidden sm:block text-blue-300">•</div>
+              <div className="flex items-center">
+                <Users className="w-5 h-5 text-green-400 mr-2" />
+                <span>Industry Mentors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Combined Mission & Target Audience Section - Modern Design */}
+      <section id="about" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        {/* Advanced Background Graphics */}
+        <div className="absolute inset-0">
+          {/* Animated gradient orbs */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+
+          {/* Grid pattern overlay */}
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            {/* Left Side - Enhanced Mission Content */}
+            <div className="space-y-10">
+              {/* Main heading with better typography */}
+              <div className="space-y-6">
+                <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 mb-6">
+                  <span className="text-yellow-400 font-semibold text-sm">🚀 Transforming Education</span>
+                </div>
+
+                <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+                  <span className="text-white">Revolutionizing</span>{' '}
+                  <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                    Technical Education
+                  </span>
+                </h2>
+
+                <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
+                  At Tech Academy Pvt Ltd, we're on a mission to transform how technical education works.
+                  We bridge the critical gap between traditional academics and real industry demands.
+                </p>
+              </div>
+
+              {/* Enhanced mission card */}
+              <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mr-4">
+                    <Target className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">{stat.number}</div>
-                  <div className="text-gray-600 font-semibold">{stat.label}</div>
+                  <h3 className="text-2xl font-bold text-white">Our Mission</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  We believe that the best way to learn technology is by doing. Our academy focuses on
+                  project-led training that mirrors real workplace scenarios, ensuring our graduates
+                  are not just educated, but truly job-ready.
+                </p>
+
+                {/* Mission highlights */}
+                <div className="grid grid-cols-2 gap-4 mt-6">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <span className="text-gray-300 text-sm">Project-Based Learning</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <span className="text-gray-300 text-sm">Industry Mentorship</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <span className="text-gray-300 text-sm">Hands-on Experience</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                    <span className="text-gray-300 text-sm">Job-Ready Skills</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Enhanced Target Audience Cards */}
+            <div className="space-y-8">
+              <div className="text-center lg:text-left">
+                <h3 className="text-4xl font-bold text-white mb-4">
+                  Who We Serve
+                </h3>
+                <p className="text-gray-400 text-lg">
+                  Tailored programs for every stage of your career journey
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {/* Fresh Graduates - Enhanced Card */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <GraduationCap className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="text-2xl font-bold text-white mb-3">Fresh Graduates</h4>
+                        <p className="text-gray-300 text-lg mb-4">Transform theoretical knowledge into practical skills</p>
+                        <div className="flex flex-wrap gap-3">
+                          <span className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium">Theory to Practice</span>
+                          <span className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium">Real Projects</span>
+                          <span className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium">Industry Exposure</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Working Professionals - Enhanced Card */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Briefcase className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="text-2xl font-bold text-white mb-3">Working Professionals</h4>
+                        <p className="text-gray-300 text-lg mb-4">Upskill with cutting-edge technologies and methodologies</p>
+                        <div className="flex flex-wrap gap-3">
+                          <span className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full text-sm font-medium">Advanced Skills</span>
+                          <span className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full text-sm font-medium">Career Growth</span>
+                          <span className="bg-green-500/20 text-green-300 px-4 py-2 rounded-full text-sm font-medium">Leadership</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Career Switchers - Enhanced Card */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Rocket className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="text-2xl font-bold text-white mb-3">Career Switchers</h4>
+                        <p className="text-gray-300 text-lg mb-4">Transition smoothly into tech with comprehensive support</p>
+                        <div className="flex flex-wrap gap-3">
+                          <span className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium">Complete Support</span>
+                          <span className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium">Smooth Transition</span>
+                          <span className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium">Mentorship</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Makes Us Unique Section */}
+      <section className="py-24 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-100/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
+              <span className="text-blue-700 font-semibold text-sm">✨ What Makes Us Unique</span>
+            </div>
+
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Why Choose TechAcademy?
+              </span>
+            </h2>
+
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Discover the unique advantages that set us apart in the world of technical education
+            </p>
+          </div>
+
+          {/* Unique Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {/* Feature 1 - Industry Partnerships */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <Globe className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Industry Partnerships</h3>
+                </div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  Direct collaboration with 500+ leading tech companies including Google, Microsoft, Amazon, and Meta for real-world project exposure.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Live Projects</span>
+                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Industry Mentors</span>
+                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Job Placements</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 2 - Project-Based Learning */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <Code className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Project-Based Learning</h3>
+                </div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  Build 15+ real-world projects during your program, from concept to deployment, mirroring actual industry workflows and standards.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Real Projects</span>
+                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Portfolio Building</span>
+                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">GitHub Ready</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 3 - Personalized Mentorship */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">1:1 Mentorship</h3>
+                </div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  Get personalized guidance from industry experts with 1:1 mentorship sessions, career coaching, and continuous support throughout your journey.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Personal Coach</span>
+                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Career Guidance</span>
+                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">24/7 Support</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 4 - Job Guarantee */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Job Guarantee</h3>
+                </div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  We're so confident in our program that we offer a 100% job placement guarantee within 6 months of graduation, or your money back.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">100% Placement</span>
+                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">Money Back</span>
+                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">6 Months</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 5 - Cutting-Edge Curriculum */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Latest Technologies</h3>
+                </div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  Learn the most in-demand technologies including AI/ML, Cloud Computing, DevOps, and modern frameworks that employers are actively seeking.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">AI/ML</span>
+                  <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Cloud</span>
+                  <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">DevOps</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 6 - Flexible Learning */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                    <Clock className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Flexible Schedule</h3>
+                </div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  Study at your own pace with flexible schedules, recorded sessions, and 24/7 access to learning materials that fit your lifestyle.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Self-Paced</span>
+                  <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">24/7 Access</span>
+                  <span className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Recorded Sessions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Impact in Numbers Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30 shadow-lg">
+              <span className="text-white font-semibold text-sm">📊 Our Impact</span>
+            </div>
+
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+              <span className="text-white">Our Impact in</span>{' '}
+              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                Numbers
+              </span>
+            </h2>
+
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              See the measurable impact we've made in transforming careers and building the next generation of tech professionals
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2">10,000+</div>
+              <div className="text-xl text-white font-semibold">Students Trained</div>
+              <div className="text-blue-200 text-sm mt-2">Across all programs</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2">95%</div>
+              <div className="text-xl text-white font-semibold">Job Placement Rate</div>
+              <div className="text-blue-200 text-sm mt-2">Within 6 months</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2">500+</div>
+              <div className="text-xl text-white font-semibold">Industry Partners</div>
+              <div className="text-blue-200 text-sm mt-2">Including FAANG</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-400 mb-2">50+</div>
+              <div className="text-xl text-white font-semibold">Expert Mentors</div>
+              <div className="text-blue-200 text-sm mt-2">From top companies</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programs Section - Auto-Scroll */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-100/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
+              <span className="text-blue-700 font-semibold text-sm">💼 Our Programs</span>
+            </div>
+
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Launch Your Career
+              </span>
+            </h2>
+
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Choose from our comprehensive range of technology programs designed to launch your career
+            </p>
+          </div>
+
+          {/* Auto-Scrolling Programs */}
+          <div className="relative overflow-hidden">
+            <div className="flex space-x-6 auto-scroll">
+              {/* Duplicate programs for seamless scrolling */}
+              {[...programs, ...programs, ...programs].map((program, index) => (
+                <div key={`${program.id}-${index}`} className="group relative flex-shrink-0 w-80 pt-4">
+                  {/* Glow Effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${program.color} opacity-10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500`}></div>
+
+                  {/* Main Card - Fixed Height */}
+                  <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl h-full flex flex-col">
+                    {/* Badge */}
+                    {program.badge && (
+                      <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold px-2 py-1 rounded-full shadow-lg z-20 whitespace-nowrap">
+                        {program.badge}
+                      </div>
+                    )}
+
+                    {/* Icon */}
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${program.color} mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <program.icon className="h-8 w-8 text-white" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
+
+                    {/* Description - Fixed Height */}
+                    <p className="text-gray-700 text-base mb-6 leading-relaxed flex-grow min-h-[4.5rem]">{program.description}</p>
+
+                    {/* Features - Fixed Height */}
+                    <div className="space-y-3 mb-6 min-h-[8rem]">
+                      {program.features.map((feature, index) => (
+                        <div key={index} className="flex items-center text-gray-700">
+                          <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                          <span className="text-sm font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Rating and Students */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center text-yellow-500">
+                        <Star className="h-5 w-5 fill-current" />
+                        <span className="ml-2 text-gray-900 font-bold text-lg">{program.rating}</span>
+                      </div>
+                      <div className="text-gray-600 text-sm font-medium">{program.students} students</div>
+                    </div>
+
+                    {/* Duration Only */}
+                    <div className="flex items-center justify-center mb-6">
+                      <div className="text-center">
+                        <div className="text-gray-600 text-sm font-medium">Duration</div>
+                        <div className="text-gray-900 font-bold text-lg">{program.duration}</div>
+                      </div>
+                    </div>
+
+                    {/* Enroll Button - Fixed at Bottom */}
+                    <div className="mt-auto">
+                      <Link
+                        to="/signup"
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      >
+                        <span>Enroll Now</span>
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -259,98 +709,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Programs Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Our Programs
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our comprehensive range of technology programs designed to launch your career
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {programs.map((program) => (
-              <div key={program.id} className="group relative">
-                <div className="card-gradient p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  {program.badge && (
-                    <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold px-3 py-1 rounded-full">
-                      {program.badge}
-                    </div>
-                  )}
-                  
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${program.color} mb-6`}>
-                    <program.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{program.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
-                  
-                  <div className="space-y-3 mb-6">
-                    {program.features.map((feature, index) => (
-                      <div key={index} className="flex items-center text-gray-600">
-                        <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center text-yellow-500">
-                      <Star className="h-4 w-4 fill-current" />
-                      <span className="ml-1 text-gray-900 font-semibold">{program.rating}</span>
-                    </div>
-                    <div className="text-gray-500 text-sm">{program.students} students</div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="text-2xl font-bold text-gray-900">{program.price}</div>
-                    <div className="text-gray-500 text-sm">{program.duration}</div>
-                  </div>
-                  
-                  <Link
-                    to="/apply"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 flex items-center justify-center group"
-                  >
-                    Enroll Now
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose TechAcademy?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide the best learning experience with industry-leading features
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center group">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-50 rounded-2xl mb-6 group-hover:bg-blue-50 transition-all duration-300 border border-gray-200">
-                  <feature.icon className={`h-8 w-8 ${feature.color}`} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Mentors Section */}
       <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
@@ -514,6 +872,56 @@ const Home: React.FC = () => {
                 Become a Mentor
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
+              <span className="text-blue-700 font-semibold text-sm">📧 Stay Updated</span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Stay in the Loop
+              </span>
+            </h2>
+
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Get the latest updates on new programs, industry insights, and exclusive opportunities delivered to your inbox.
+            </p>
+
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-2xl max-w-2xl mx-auto">
+              <form className="flex flex-col sm:flex-row gap-4">
+                <div className="flex-grow">
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    className="w-full px-6 py-4 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-gray-900 placeholder-gray-500"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Subscribe
+                </button>
+              </form>
+
+              <p className="text-gray-500 text-sm mt-4 text-center">
+                Join 10,000+ subscribers. Unsubscribe anytime.
+              </p>
             </div>
           </div>
         </div>
