@@ -17,6 +17,10 @@ import Assessment from './pages/Assessment';
 import AssessmentAnalytics from './pages/AssessmentAnalytics';
 import AdminDashboard from './pages/AdminDashboard';
 import ChatbotPage from './pages/ChatbotPage';
+import FAQ from './pages/FAQ';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import Blog from './pages/Blog';
 import Chatbot from './components/Chatbot';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -44,6 +48,10 @@ function App() {
           <Route path="/analytics" element={<AssessmentAnalytics />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/chatbot" element={<ChatbotPage />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         </main>
         <Footer />

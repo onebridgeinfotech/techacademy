@@ -80,6 +80,16 @@ const Footer: React.FC = () => {
                   Assessment
                 </Link>
               </li>
+              <li>
+                <Link to="/faq" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -158,8 +168,8 @@ const Footer: React.FC = () => {
               <Link to="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
                 Terms of Service
               </Link>
-              <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Cookie Policy
+              <Link to="/faq" className="text-gray-400 hover:text-white transition-colors text-sm">
+                FAQ
               </Link>
             </div>
           </div>

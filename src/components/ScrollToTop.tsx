@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
-  // Show button when page is scrolled down
+  // Show button and determine position
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      const scrollY = window.pageYOffset;
+      
+      if (scrollY > 300) {
         setIsVisible(true);
+        setIsAtTop(false);
+      } else if (scrollY > 50) {
+        setIsVisible(true);
+        setIsAtTop(false);
       } else {
-        setIsVisible(false);
+        setIsVisible(true);
+        setIsAtTop(true);
       }
     };
 
@@ -18,25 +26,38 @@ const ScrollToTop: React.FC = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  // Scroll function - to top if at bottom, to bottom if at top
+  const handleScroll = () => {
+    if (isAtTop) {
+      // If at top, scroll to bottom
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    } else {
+      // If scrolled down, scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
-
-  if (!isVisible) {
-    return null;
-  }
 
   return (
     <button
-      onClick={scrollToTop}
-      className="fixed bottom-6 right-24 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-40 group"
-      aria-label="Scroll to top"
+      onClick={handleScroll}
+      className={`fixed bottom-6 right-24 text-white p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-40 group ${
+        isAtTop 
+          ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700' 
+          : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
+      }`}
+      aria-label={isAtTop ? "Scroll to bottom" : "Scroll to top"}
     >
-      <ChevronUp className="h-6 w-6 group-hover:animate-bounce" />
+      {isAtTop ? (
+        <ChevronDown className="h-6 w-6 group-hover:animate-bounce" />
+      ) : (
+        <ChevronUp className="h-6 w-6 group-hover:animate-bounce" />
+      )}
     </button>
   );
 };

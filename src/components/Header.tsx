@@ -17,13 +17,14 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const navigation = [
-    { name: 'Home', href: '/', sectionId: 'hero' },
-    { name: 'About Us', href: '/', sectionId: 'about' },
-    { name: 'Programs', href: '/', sectionId: 'programs' },
-    { name: 'Mentors', href: '/', sectionId: 'mentors' },
-    { name: 'Placements', href: '/', sectionId: 'placements' }
-  ];
+      const navigation = [
+        { name: 'Home', href: '/', sectionId: 'hero' },
+        { name: 'About Us', href: '/', sectionId: 'about' },
+        { name: 'Programs', href: '/', sectionId: 'programs' },
+        { name: 'Mentors', href: '/', sectionId: 'mentors' },
+        { name: 'Placements', href: '/', sectionId: 'placements' },
+        { name: 'Blog', href: '/blog', sectionId: null }
+      ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/50 shadow-lg">
@@ -41,22 +42,34 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
-            {navigation.map((item) => {
-              const isActive = location.pathname === item.href;
-              return (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.sectionId)}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                    isActive
-                      ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              );
-            })}
+                {navigation.map((item) => {
+                  const isActive = location.pathname === item.href;
+                  return item.sectionId ? (
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.sectionId)}
+                      className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
           </nav>
 
           {/* Action Buttons */}
@@ -84,22 +97,35 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg mt-2 border border-gray-200 shadow-lg">
-              {navigation.map((item) => {
-                const isActive = location.pathname === item.href;
-                return (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.sectionId)}
-                    className={`block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      isActive
-                        ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                        : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                );
-              })}
+                  {navigation.map((item) => {
+                    const isActive = location.pathname === item.href;
+                    return item.sectionId ? (
+                      <button
+                        key={item.name}
+                        onClick={() => scrollToSection(item.sectionId)}
+                        className={`block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
+                          isActive
+                            ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
+                          isActive
+                            ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    );
+                  })}
               
               {/* Mobile Action Buttons */}
               <div className="pt-4 space-y-3 border-t border-gray-200">
