@@ -1,6 +1,5 @@
-// ChatGPT Assessment Service
-// Note: In production, you would integrate with OpenAI API
-// For now, we'll use mock data for demonstration
+// Enhanced ChatGPT Assessment Service
+// Comprehensive assessment system with all 3 phases
 
 export interface AssessmentData {
   candidateId: string;
@@ -28,288 +27,341 @@ export interface ResumeData {
   skills: string[];
   projects: string[];
   certifications: string[];
-  achievements: string[];
   experience: string[];
   education: string[];
+  gpa?: number;
 }
 
-export interface Question {
+export interface ObjectiveQuestion {
   id: string;
   question: string;
-  type: 'technical' | 'general' | 'resume_based' | 'communication' | 'coding';
+  options: string[];
+  correctAnswer: string;
+  topic: string;
   difficulty: 'easy' | 'medium' | 'hard';
-  category: string;
+  timeLimit: number;
 }
 
-export interface Answer {
-  questionId: string;
-  answer: string;
-  score?: number;
-  feedback?: string;
-}
-
-export interface RoundResult {
-  round: number;
-  score: number;
-  maxScore: number;
-  passed: boolean;
-  feedback: string;
-  details: {
-    correctness: number;
-    depth: number;
-    clarity: number;
-    timeManagement?: number;
-    efficiency?: number;
-    codeQuality?: number;
+export interface CommunicationTest {
+  written: {
+    scenario: string;
+    sampleAnswer: string;
+    evaluationRubric: string[];
+  };
+  spoken: {
+    prompt: string;
+    evaluationRubric: string[];
+    timeLimit: number;
   };
 }
 
+export interface CodingProblem {
+  id: string;
+  problem: string;
+  inputExample: string;
+  expectedOutput: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  language: string;
+  evaluationCriteria: string[];
+  timeLimit: number;
+}
+
+export interface AssessmentResult {
+  candidateId: string;
+  name: string;
+  email: string;
+  resumeHighlights: string[];
+  objectiveTest: {
+    score: number;
+    pass: boolean;
+    timeTaken: string;
+    questionsAnswered: number;
+  };
+  communicationTest: {
+    written: number;
+    spoken: number;
+    pass: boolean;
+  };
+  codingTest: {
+    score: number;
+    language: string;
+    pass: boolean;
+  };
+  proctoringViolations: number;
+  finalStatus: 'Passed' | 'Failed';
+  eligibleForInterview: boolean;
+  sponsorshipApproved: boolean;
+  assessmentDate: string;
+}
+
+// Mock data for demonstration - in production, integrate with OpenAI API
+const mockObjectiveQuestions: ObjectiveQuestion[] = [
+  {
+    id: 'q1',
+    question: 'What is the time complexity of binary search?',
+    options: ['O(n)', 'O(log n)', 'O(n²)', 'O(1)'],
+    correctAnswer: 'O(log n)',
+    topic: 'Data Structures',
+    difficulty: 'easy',
+    timeLimit: 60
+  },
+  {
+    id: 'q2',
+    question: 'Which of the following is NOT a valid Python data type?',
+    options: ['list', 'tuple', 'array', 'dictionary'],
+    correctAnswer: 'array',
+    topic: 'Python',
+    difficulty: 'easy',
+    timeLimit: 60
+  },
+  {
+    id: 'q3',
+    question: 'What does SQL stand for?',
+    options: ['Structured Query Language', 'Simple Query Language', 'Standard Query Language', 'System Query Language'],
+    correctAnswer: 'Structured Query Language',
+    topic: 'Database',
+    difficulty: 'easy',
+    timeLimit: 60
+  },
+  {
+    id: 'q4',
+    question: 'Which design pattern ensures only one instance of a class exists?',
+    options: ['Factory', 'Singleton', 'Observer', 'Builder'],
+    correctAnswer: 'Singleton',
+    topic: 'OOP',
+    difficulty: 'medium',
+    timeLimit: 60
+  },
+  {
+    id: 'q5',
+    question: 'What is the purpose of a foreign key in a database?',
+    options: ['To ensure data integrity', 'To improve query performance', 'To store encrypted data', 'To create backups'],
+    correctAnswer: 'To ensure data integrity',
+    topic: 'Database',
+    difficulty: 'medium',
+    timeLimit: 60
+  }
+];
+
+const mockCommunicationTest: CommunicationTest = {
+  written: {
+    scenario: "Write a professional email to your mentor requesting a 2-day extension on your current project deadline. The project is a web application and you need more time to implement the authentication feature properly.",
+    sampleAnswer: "Subject: Request for Project Deadline Extension\n\nDear [Mentor Name],\n\nI hope this email finds you well. I am writing to request a 2-day extension on the web application project deadline.\n\nI have made significant progress on the core functionality, but I need additional time to properly implement the authentication feature. This is a critical component that requires careful attention to security best practices.\n\nI am confident that with the extra time, I can deliver a more robust and secure solution. I will provide regular updates on my progress.\n\nThank you for your understanding.\n\nBest regards,\n[Your Name]",
+    evaluationRubric: ['Professional tone', 'Clear request', 'Justification provided', 'Proper email format', 'Grammar and spelling']
+  },
+  spoken: {
+    prompt: "Introduce yourself and explain your learning journey in technology. Describe your favorite project and the technologies you used. Speak for 3-5 minutes.",
+    evaluationRubric: ['Clarity of speech', 'Confidence level', 'Technical vocabulary', 'Structure and flow', 'Engagement'],
+    timeLimit: 300
+  }
+};
+
+const mockCodingProblems: CodingProblem[] = [
+  {
+    id: 'cp1',
+    problem: 'Write a function to find the factorial of a number using recursion.',
+    inputExample: 'factorial(5)',
+    expectedOutput: '120',
+    difficulty: 'easy',
+    language: 'python',
+    evaluationCriteria: ['Correctness', 'Code efficiency', 'Readability', 'Edge cases'],
+    timeLimit: 900
+  },
+  {
+    id: 'cp2',
+    problem: 'Implement a function to check if a string is a palindrome.',
+    inputExample: 'isPalindrome("racecar")',
+    expectedOutput: 'True',
+    difficulty: 'easy',
+    language: 'python',
+    evaluationCriteria: ['Correctness', 'Code efficiency', 'Readability', 'Edge cases'],
+    timeLimit: 900
+  },
+  {
+    id: 'cp3',
+    problem: 'Create a class to represent a bank account with deposit, withdraw, and balance methods.',
+    inputExample: 'account = BankAccount(1000)\naccount.deposit(500)\naccount.withdraw(200)',
+    expectedOutput: 'Balance: 1300',
+    difficulty: 'medium',
+    language: 'python',
+    evaluationCriteria: ['Class design', 'Method implementation', 'Error handling', 'Code organization'],
+    timeLimit: 1200
+  }
+];
+
 class AssessmentService {
-  private masterPrompt = `You are an AI-powered assessment engine for an EdTech platform. 
-You will control the entire flow of a 3-round candidate assessment:
-
-1. Round 1 – Resume Parsing & Objective Test
-   - Parse candidate's uploaded resume.
-   - Extract skills, projects, certifications, achievements.
-   - Generate 3–5 personalized questions from resume.
-   - Generate 3–5 random industry questions (Python, Java, .NET, React.js, HTML).
-   - Score answers (Correctness, Depth, Clarity).
-   - Provide feedback and decide Pass/Fail.
-
-2. Round 2 – Communication & Writing Test
-   - Part A: Give a random scenario (customer complaint, missed deadline, crisis management).
-   - Candidate writes an email reply → evaluate for Grammar, Tone, Clarity, Professionalism.
-   - Part B: Assign a random speaking topic.
-   - Candidate uploads audio/video → transcribe (via Whisper API) → evaluate for Fluency, Pronunciation, Confidence, Relevance.
-   - Provide feedback and decide Pass/Fail.
-
-3. Round 3 – Logical & Coding Test
-   - Ask candidate to select track: Python, Java, .NET, HTML, React.js.
-   - Generate one coding or logic challenge for chosen track.
-   - Candidate submits code → run tests → evaluate for Correctness, Efficiency, Quality, Time Management.
-   - Provide feedback and decide Pass/Fail.
-
-4. Final Result
-   - If passed all rounds → Generate personalized success email + admin notification.
-   - If failed → Generate personalized rejection email + feedback.
-   - Maintain log: Candidate name, round scores, strengths, weaknesses, final result.
-
-Rules:
-- Always be professional and encouraging.
-- Adapt difficulty to freshers (beginner-friendly).
-- Do not skip feedback.
-- Use scoring rubrics fairly.
-- You fully control progression (no manual approval needed).`;
-
-  async parseResume(resumeText: string): Promise<ResumeData> {
-    try {
-      // Mock resume parsing - in production, integrate with OpenAI API
-      const mockData: ResumeData = {
-        skills: ['JavaScript', 'React', 'Node.js', 'Python', 'SQL'],
-        projects: ['E-commerce Website', 'Task Management App', 'Data Analysis Tool'],
-        certifications: ['AWS Certified Developer', 'Google Cloud Professional'],
-        achievements: ['Dean\'s List', 'Hackathon Winner', 'Open Source Contributor'],
-        experience: ['Software Developer at TechCorp', 'Intern at StartupXYZ'],
-        education: ['Bachelor of Computer Science', 'Master of Software Engineering']
-      };
-      
-      return mockData;
-    } catch (error) {
-      console.error('Error parsing resume:', error);
-      throw new Error('Failed to parse resume');
+  // Generate 30 adaptive objective questions based on resume
+  async generateObjectiveQuestions(resumeData: any): Promise<ObjectiveQuestion[]> {
+    // In production, use OpenAI API to generate questions based on resume
+    // For now, return mock questions with some adaptation
+    const questions = [...mockObjectiveQuestions];
+    
+    // Add more questions to reach 30
+    for (let i = 6; i <= 30; i++) {
+      questions.push({
+        id: `q${i}`,
+        question: `Sample question ${i}: What is the output of this code?`,
+        options: ['Option A', 'Option B', 'Option C', 'Option D'],
+        correctAnswer: 'Option B',
+        topic: 'Programming',
+        difficulty: i % 3 === 0 ? 'hard' : i % 2 === 0 ? 'medium' : 'easy',
+        timeLimit: 60
+      });
     }
+    
+    return questions;
   }
 
-  async generateQuestions(round: number, resumeData?: ResumeData, track?: string): Promise<Question[]> {
-    try {
-      // Mock question generation - in production, integrate with OpenAI API
-      if (round === 1) {
-        return [
-          {
-            id: 'q1',
-            question: 'Explain the difference between let, const, and var in JavaScript.',
-            type: 'technical',
-            difficulty: 'medium',
-            category: 'JavaScript'
-          },
-          {
-            id: 'q2',
-            question: 'What is the purpose of React hooks and how do they work?',
-            type: 'technical',
-            difficulty: 'medium',
-            category: 'React'
-          },
-          {
-            id: 'q3',
-            question: 'Describe your experience with database design and normalization.',
-            type: 'resume_based',
-            difficulty: 'medium',
-            category: 'Database'
-          },
-          {
-            id: 'q4',
-            question: 'What is the difference between SQL and NoSQL databases?',
-            type: 'general',
-            difficulty: 'easy',
-            category: 'Database'
-          },
-          {
-            id: 'q5',
-            question: 'How would you handle a situation where your code is not working as expected?',
-            type: 'general',
-            difficulty: 'easy',
-            category: 'Problem Solving'
-          }
-        ];
-      } else if (round === 2) {
-        return [
-          {
-            id: 'email',
-            question: 'Write an email to a client explaining that their project delivery will be delayed by 2 days due to unexpected technical challenges.',
-            type: 'communication',
-            difficulty: 'medium',
-            category: 'Email Writing'
-          },
-          {
-            id: 'speaking',
-            question: 'Present your most challenging project and how you overcame the difficulties.',
-            type: 'communication',
-            difficulty: 'medium',
-            category: 'Speaking'
-          }
-        ];
-      } else if (round === 3) {
-        return [
-          {
-            id: 'coding',
-            question: `Write a function that takes an array of integers and returns the two numbers that add up to a specific target sum. For example, if the array is [2, 7, 11, 15] and the target is 9, return [2, 7].`,
-            type: 'coding',
-            difficulty: 'medium',
-            category: track || 'Python'
-          }
-        ];
+  // Generate communication test based on resume
+  async generateCommunicationTest(resumeData: any): Promise<CommunicationTest> {
+    // In production, customize based on resume
+    return mockCommunicationTest;
+  }
+
+  // Generate coding problems based on selected language and resume
+  async generateCodingProblems(language: string, resumeData: any): Promise<CodingProblem[]> {
+    // In production, generate problems based on language and resume
+    return mockCodingProblems.map(problem => ({
+      ...problem,
+      language: language
+    }));
+  }
+
+  // Evaluate objective test answers
+  async evaluateObjectiveTest(questions: ObjectiveQuestion[], answers: { [key: string]: string }): Promise<number> {
+    let score = 0;
+    questions.forEach(question => {
+      if (answers[question.id] === question.correctAnswer) {
+        score++;
       }
-      
-      return [];
-    } catch (error) {
-      console.error('Error generating questions:', error);
-      throw new Error('Failed to generate questions');
-    }
+    });
+    return score;
   }
 
-  async evaluateAnswers(round: number, questions: Question[], answers: Answer[]): Promise<RoundResult> {
-    try {
-      // Mock evaluation - in production, integrate with OpenAI API
-      const mockScores = [75, 82, 68, 90, 85]; // Random scores for demonstration
-      const randomScore = mockScores[Math.floor(Math.random() * mockScores.length)];
-      
-      const mockFeedback = [
-        'Good understanding of the concepts. Consider providing more detailed examples.',
-        'Excellent technical knowledge. Well-structured response with clear explanations.',
-        'Solid foundation but could benefit from more practical experience.',
-        'Outstanding performance. Demonstrates strong problem-solving skills.',
-        'Good attempt. Focus on improving code efficiency and best practices.'
-      ];
-      
-      const randomFeedback = mockFeedback[Math.floor(Math.random() * mockFeedback.length)];
-      
-      return {
-        round,
-        score: randomScore,
-        maxScore: 100,
-        passed: randomScore >= (round === 1 ? 60 : 70),
-        feedback: randomFeedback,
-        details: {
-          correctness: Math.floor(randomScore * 0.4),
-          depth: Math.floor(randomScore * 0.3),
-          clarity: Math.floor(randomScore * 0.3)
-        }
-      };
-    } catch (error) {
-      console.error('Error evaluating answers:', error);
-      throw new Error('Failed to evaluate answers');
-    }
-  }
-
-  async transcribeAudio(audioFile: File): Promise<string> {
-    try {
-      // Mock transcription - in production, integrate with Whisper API
-      return 'This is a mock transcription of the audio recording. In production, this would be processed by OpenAI Whisper API.';
-    } catch (error) {
-      console.error('Error transcribing audio:', error);
-      throw new Error('Failed to transcribe audio');
-    }
-  }
-
-  async generateFinalResult(assessmentData: AssessmentData): Promise<{
-    success: boolean;
-    emailContent: string;
-    adminNotification: string;
-    analytics: any;
-  }> {
-    try {
-      const allPassed = assessmentData.scores.round1! > 60 && 
-                       assessmentData.scores.round2! > 70 && 
-                       assessmentData.scores.round3! > 70;
-
-      // Mock final result generation - in production, integrate with OpenAI API
-      const emailContent = allPassed 
-        ? `Congratulations ${assessmentData.candidateName}! You have successfully passed the TechAcademy Assessment. Your scores: Round 1: ${assessmentData.scores.round1}%, Round 2: ${assessmentData.scores.round2}%, Round 3: ${assessmentData.scores.round3}%. We will contact you soon with next steps.`
-        : `Thank you for completing the TechAcademy Assessment, ${assessmentData.candidateName}. While you didn't pass this time, we encourage you to review the feedback and consider reapplying in the future. Your scores: Round 1: ${assessmentData.scores.round1}%, Round 2: ${assessmentData.scores.round2}%, Round 3: ${assessmentData.scores.round3}%.`;
-
-      const adminNotification = `Assessment completed for ${assessmentData.candidateName} (${assessmentData.candidateEmail}). Result: ${allPassed ? 'PASSED' : 'FAILED'}. Scores: R1: ${assessmentData.scores.round1}%, R2: ${assessmentData.scores.round2}%, R3: ${assessmentData.scores.round3}%.`;
-      
-      return {
-        success: allPassed,
-        emailContent,
-        adminNotification,
-        analytics: {
-          totalCandidates: 1,
-          passRate: allPassed ? 100 : 0,
-          averageScore: Math.round((assessmentData.scores.round1! + assessmentData.scores.round2! + assessmentData.scores.round3!) / 3)
-        }
-      };
-    } catch (error) {
-      console.error('Error generating final result:', error);
-      throw new Error('Failed to generate final result');
-    }
-  }
-
-  async runCodeTests(code: string, language: string, testCases: any[]): Promise<{
-    passed: number;
-    total: number;
-    results: any[];
-  }> {
-    try {
-      // Mock code execution - in production, integrate with Judge0 API
-      const mockResults = {
-        passed: Math.floor(Math.random() * testCases.length) + 1,
-        total: testCases.length,
-        results: [{
-          stdout: 'Mock execution result',
-          stderr: '',
-          time: '0.1s',
-          memory: '1024KB'
-        }]
-      };
-      
-      return mockResults;
-    } catch (error) {
-      console.error('Error running code tests:', error);
-      throw new Error('Failed to run code tests');
-    }
-  }
-
-  private getLanguageId(language: string): number {
-    const languageMap: { [key: string]: number } = {
-      'python': 71,
-      'java': 62,
-      'javascript': 63,
-      'csharp': 51,
-      'cpp': 54,
-      'c': 50
+  // Evaluate communication test
+  async evaluateCommunicationTest(
+    writtenResponse: string, 
+    audioBlob: Blob | null, 
+    test: CommunicationTest
+  ): Promise<{ written: number; spoken: number }> {
+    // In production, use AI to evaluate responses
+    // For now, return mock scores
+    const writtenScore = Math.min(95, 70 + Math.random() * 25);
+    const spokenScore = Math.min(95, 70 + Math.random() * 25);
+    
+    return {
+      written: Math.round(writtenScore),
+      spoken: Math.round(spokenScore)
     };
-    return languageMap[language.toLowerCase()] || 71;
+  }
+
+  // Evaluate coding test
+  async evaluateCodingTest(problems: CodingProblem[], solutions: { [key: string]: string }): Promise<number> {
+    // In production, use AI to evaluate code
+    // For now, return mock score
+    return Math.min(100, 80 + Math.random() * 20);
+  }
+
+  // Generate final assessment result
+  async generateFinalResult(data: any): Promise<AssessmentResult> {
+    // In production, generate comprehensive result
+    return {
+      candidateId: data.candidateId,
+      name: data.name,
+      email: data.email,
+      resumeHighlights: data.resumeHighlights || [],
+      objectiveTest: data.objectiveTest,
+      communicationTest: data.communicationTest,
+      codingTest: data.codingTest,
+      proctoringViolations: data.proctoringViolations || 0,
+      finalStatus: data.finalStatus,
+      eligibleForInterview: data.eligibleForInterview,
+      sponsorshipApproved: data.sponsorshipApproved,
+      assessmentDate: new Date().toISOString()
+    };
+  }
+
+  // Send result email
+  async sendResultEmail(result: AssessmentResult): Promise<void> {
+    // In production, send actual email
+    console.log('Sending result email:', result);
+    
+    if (result.finalStatus === 'Passed') {
+      // Send congratulatory email
+      console.log('Sending congratulatory email to:', result.email);
+    } else {
+      // Send failure email with feedback
+      console.log('Sending failure email to:', result.email);
+    }
+  }
+
+  // Generate questions for specific round
+  async generateQuestions(round: number, resumeData: any): Promise<any[]> {
+    // In production, generate questions based on round and resume
+    return [];
+  }
+
+  // Evaluate answers for specific round
+  async evaluateAnswers(round: number, questions: any[], answers: any[]): Promise<any> {
+    // In production, evaluate answers using AI
+    return { score: 85, feedback: 'Good performance' };
+  }
+
+  // Check if candidate can start assessment
+  canStartAssessment(): boolean {
+    // In production, check database for eligibility
+    return true;
+  }
+
+  // Get assessment data
+  async getAssessmentData(candidateId: string): Promise<AssessmentData | null> {
+    // In production, fetch from database
+    return null;
+  }
+
+  // Save assessment data
+  async saveAssessmentData(data: AssessmentData): Promise<void> {
+    // In production, save to database
+    console.log('Saving assessment data:', data);
+  }
+
+  // Generate feedback report
+  async generateFeedbackReport(result: AssessmentResult): Promise<string> {
+    const feedback = `
+Assessment Feedback Report
+========================
+
+Candidate: ${result.name}
+Assessment Date: ${result.assessmentDate}
+Final Status: ${result.finalStatus}
+
+Objective Test: ${result.objectiveTest.score}/30 (${result.objectiveTest.pass ? 'Passed' : 'Failed'})
+Communication Test: Written ${result.communicationTest.written}%, Spoken ${result.communicationTest.spoken}% (${result.communicationTest.pass ? 'Passed' : 'Failed'})
+Coding Test: ${result.codingTest.score}% (${result.codingTest.pass ? 'Passed' : 'Failed'})
+
+Strengths:
+- Strong technical foundation
+- Good problem-solving skills
+- Effective communication
+
+Areas for Improvement:
+- Practice more coding problems
+- Improve time management
+- Enhance technical vocabulary
+
+Recommendations:
+- Complete online coding challenges
+- Practice system design concepts
+- Improve communication skills
+
+Next Steps:
+${result.finalStatus === 'Passed' ? 
+  '- Eligible for final interview\n- Prepare for technical discussion\n- Review company culture' : 
+  '- Retake assessment after 30 days\n- Focus on weak areas\n- Practice regularly'
+}
+    `;
+    
+    return feedback;
   }
 }
 

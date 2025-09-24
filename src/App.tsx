@@ -18,6 +18,7 @@ import AssessmentAnalytics from './pages/AssessmentAnalytics';
 import AdminDashboard from './pages/AdminDashboard';
 import ChatbotPage from './pages/ChatbotPage';
 import Chatbot from './components/Chatbot';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
@@ -49,6 +50,9 @@ function App() {
         
         {/* Floating Chatbot */}
         <Chatbot isOpen={isChatbotOpen} onToggle={() => setIsChatbotOpen(!isChatbotOpen)} />
+        
+        {/* Scroll to Top Button */}
+        <ScrollToTop />
       </div>
     </Router>
   );

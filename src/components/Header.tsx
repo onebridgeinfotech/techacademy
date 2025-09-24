@@ -6,13 +6,23 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Internships', href: '/internships' },
-    { name: 'Placements', href: '/placements' },
-    { name: 'Sponsorship', href: '/sponsorship' },
-    { name: 'Contact Us', href: '/contact' }
+    { name: 'Home', href: '/', sectionId: 'hero' },
+    { name: 'About Us', href: '/', sectionId: 'about' },
+    { name: 'Programs', href: '/', sectionId: 'programs' },
+    { name: 'Mentors', href: '/', sectionId: 'mentors' },
+    { name: 'Placements', href: '/', sectionId: 'placements' }
   ];
 
   return (
@@ -34,17 +44,17 @@ const Header: React.FC = () => {
             {navigation.map((item) => {
               const isActive = location.pathname === item.href;
               return (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                      isActive
-                        ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.sectionId)}
+                  className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
+                  }`}
+                >
+                  {item.name}
+                </button>
               );
             })}
           </nav>
@@ -77,18 +87,17 @@ const Header: React.FC = () => {
               {navigation.map((item) => {
                 const isActive = location.pathname === item.href;
                 return (
-                  <Link
+                  <button
                     key={item.name}
-                    to={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    onClick={() => scrollToSection(item.sectionId)}
+                    className={`block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
                       isActive
                         ? 'bg-blue-50 text-blue-700 border border-blue-200'
                         : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                     }`}
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 );
               })}
               

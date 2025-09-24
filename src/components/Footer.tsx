@@ -8,8 +8,7 @@ import {
   Facebook, 
   Twitter, 
   Instagram, 
-  Linkedin,
-  ArrowRight
+  Linkedin
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -17,8 +16,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -32,18 +31,18 @@ const Footer: React.FC = () => {
               and hands-on experience in modern technologies.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <button className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              </button>
+              <button className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              </button>
+              <button className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              </button>
+              <button className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -72,13 +71,59 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Contact Us
+                <Link to="/sponsorship" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Sponsorship
+                </Link>
+              </li>
+              <li>
+                <Link to="/assessment" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Assessment
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Internship Programs */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Internship Programs</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/internships/software-development" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Software Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/internships/cloud-devops" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Cloud & DevOps
+                </Link>
+              </li>
+              <li>
+                <Link to="/internships/data-science" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Data Science
+                </Link>
+              </li>
+              <li>
+                <Link to="/internships/product-management" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Product Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/internships/ai-generative" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  AI & Generative
+                </Link>
+              </li>
+              <li>
+                <Link to="/internships/digital-marketing" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Digital Marketing
+                </Link>
+              </li>
+              <li>
+                <Link to="/internships/cybersecurity" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Cybersecurity
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Contact Info */}
           <div className="space-y-4">

@@ -9,7 +9,6 @@ import {
   Code,
   Cloud,
   CheckCircle,
-  TrendingUp,
   Globe,
   Zap,
   Target,
@@ -555,7 +554,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Our Impact in Numbers Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+      <section id="placements" className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -609,7 +608,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Programs Section - Auto-Scroll */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+      <section id="programs" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
@@ -711,7 +710,7 @@ const Home: React.FC = () => {
 
 
       {/* Mentors Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <section id="mentors" className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
