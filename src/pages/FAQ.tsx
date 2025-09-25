@@ -153,7 +153,7 @@ const FAQ: React.FC = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               <span className="text-white">Frequently Asked</span>{' '}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="text-yellow-500">
                 Questions
               </span>
             </h1>
@@ -185,7 +185,7 @@ const FAQ: React.FC = () => {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -199,7 +199,7 @@ const FAQ: React.FC = () => {
               <div className="space-y-4">
                 {category.questions.map((item) => (
                   <div key={item.id} className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                     <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:bg-white/90 transition-all duration-500 hover:shadow-xl">
                       <button
                         onClick={() => toggleItem(item.id)}
@@ -234,7 +234,7 @@ const FAQ: React.FC = () => {
           {/* Contact Support CTA */}
           <div className="text-center mt-16">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-3xl blur-xl"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-2xl">
                 <HelpCircle className="h-16 w-16 text-blue-600 mx-auto mb-6" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -246,7 +246,7 @@ const FAQ: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="/contact"
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                    className="bg-gradient-to-r from-blue-600 to-yellow-600 hover:from-blue-700 hover:to-yellow-700 text-white px-8 py-3 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   >
                     Contact Support
                   </a>

@@ -33,10 +33,10 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+            <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-yellow-500 rounded-2xl group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
               <span className="text-white font-bold text-xl">T</span>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+            <span className="text-2xl font-bold text-blue-600 group-hover:text-blue-700 transition-all duration-300">
               TechAcademy
             </span>
           </Link>

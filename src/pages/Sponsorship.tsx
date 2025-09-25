@@ -65,7 +65,7 @@ const Sponsorship: React.FC = () => {
       duration: '5 months',
       students: '420+',
       icon: FolderOpen,
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-yellow-500 to-yellow-600',
       features: ['Agile & Scrum', 'Risk Management', 'Team Leadership', 'Project Planning']
     }
   ];

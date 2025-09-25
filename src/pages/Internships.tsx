@@ -77,7 +77,7 @@ const Internships: React.FC = () => {
       requirements: ['JavaScript knowledge', 'Mobile development interest', 'UI/UX basics'],
       benefits: ['App store publishing', 'Portfolio development', 'Startup experience'],
       icon: Smartphone,
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-yellow-500 to-yellow-600'
     },
     {
       id: 4,

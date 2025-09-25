@@ -5,13 +5,8 @@ import {
   Target, 
   Globe, 
   TrendingUp, 
-  Star,
   CheckCircle,
-  ArrowRight,
-  Heart,
-  Lightbulb,
-  Rocket,
-  Shield
+  ArrowRight
 } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -85,7 +80,7 @@ const About: React.FC = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               <span className="text-white">About</span>{' '}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="text-yellow-500">
                 TechAcademy
               </span>
             </h1>
@@ -127,7 +122,7 @@ const About: React.FC = () => {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-100/20 rounded-full blur-3xl"></div>
         </div>
 
@@ -139,7 +134,7 @@ const About: React.FC = () => {
               </div>
               
               <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="text-blue-600">
                   Empowering Future
                 </span>
                 <br />
@@ -166,7 +161,7 @@ const About: React.FC = () => {
                   <span className="text-lg text-gray-700 font-medium">Hands-on project experience</span>
                 </div>
                 <div className="flex items-center space-x-4 group">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <CheckCircle className="h-6 w-6 text-white" />
                   </div>
                   <span className="text-lg text-gray-700 font-medium">Expert mentorship</span>
@@ -181,12 +176,12 @@ const About: React.FC = () => {
             </div>
             
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-yellow-500/20 rounded-3xl blur-2xl"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-2xl">
                 <div className="grid grid-cols-2 gap-8">
                   {stats.map((stat, index) => (
                     <div key={index} className="text-center group">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-yellow-500 rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <stat.icon className="h-8 w-8 text-white" />
                       </div>
                       <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
@@ -205,7 +200,7 @@ const About: React.FC = () => {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-yellow-100/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -215,7 +210,7 @@ const About: React.FC = () => {
             </div>
             
             <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Core Values
               </span>
             </h2>
@@ -228,9 +223,9 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-yellow-500 rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
@@ -243,21 +238,21 @@ const About: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-emerald-50 to-blue-50 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-purple-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-emerald-100/30 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gradient-to-r from-purple-50 to-pink-50 rounded-full px-6 py-3 mb-8 border border-purple-200 shadow-lg">
-              <span className="text-purple-700 font-semibold text-sm">👥 Our Team</span>
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-emerald-50 rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
+              <span className="text-blue-700 font-semibold text-sm">👥 Our Team</span>
             </div>
             
             <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Meet Our Experts
               </span>
             </h2>
@@ -270,7 +265,7 @@ const About: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div key={index} className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl text-center">
                   <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-white/50 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <img 
@@ -290,7 +285,7 @@ const About: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-yellow-500 to-indigo-600 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -306,7 +301,7 @@ const About: React.FC = () => {
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
             Ready to Start Your
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="text-yellow-500">
               Tech Journey?
             </span>
           </h2>

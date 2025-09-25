@@ -17,8 +17,7 @@ import {
   GraduationCap,
   Heart,
   MessageCircle,
-  Briefcase,
-  Send
+  Briefcase
 } from 'lucide-react';
 
 const Home: React.FC = () => {
@@ -152,7 +151,7 @@ const Home: React.FC = () => {
       students: '650+',
       rating: 4.7,
       icon: Target,
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-yellow-500 to-yellow-600',
       features: ['Agile & Scrum', 'Project Tools', 'Team Leadership', 'Risk Management'],
       badge: 'Leadership'
     },
@@ -186,7 +185,7 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Dark Blue Background */}
-      <section id="hero" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 pt-28 pb-16">
+      <section id="hero" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             {/* Main Headline */}
@@ -247,7 +246,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0">
           {/* Animated gradient orbs */}
           <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-500/20 to-emerald-400/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
 
           {/* Grid pattern overlay */}
@@ -268,7 +267,7 @@ const Home: React.FC = () => {
 
                 <h2 className="text-5xl md:text-6xl font-bold leading-tight">
                   <span className="text-white">Revolutionizing</span>{' '}
-                  <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                  <span className="text-yellow-500">
                     Technical Education
                   </span>
                 </h2>
@@ -371,19 +370,19 @@ const Home: React.FC = () => {
 
                 {/* Career Switchers - Enhanced Card */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
                     <div className="flex items-start space-x-6">
-                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                         <Rocket className="w-8 h-8 text-white" />
                       </div>
                       <div className="flex-grow">
                         <h4 className="text-2xl font-bold text-white mb-3">Career Switchers</h4>
                         <p className="text-gray-300 text-lg mb-4">Transition smoothly into tech with comprehensive support</p>
                         <div className="flex flex-wrap gap-3">
-                          <span className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium">Complete Support</span>
-                          <span className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium">Smooth Transition</span>
-                          <span className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium">Mentorship</span>
+                          <span className="bg-yellow-500/20 text-yellow-700 px-4 py-2 rounded-full text-sm font-medium">Complete Support</span>
+                          <span className="bg-yellow-500/20 text-yellow-700 px-4 py-2 rounded-full text-sm font-medium">Smooth Transition</span>
+                          <span className="bg-yellow-500/20 text-yellow-700 px-4 py-2 rounded-full text-sm font-medium">Mentorship</span>
                         </div>
                       </div>
                     </div>
@@ -400,7 +399,7 @@ const Home: React.FC = () => {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 right-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-100/20 rounded-full blur-3xl"></div>
         </div>
 
@@ -412,7 +411,7 @@ const Home: React.FC = () => {
             </div>
 
             <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Why Choose TechAcademy?
               </span>
             </h2>
@@ -468,10 +467,10 @@ const Home: React.FC = () => {
 
             {/* Feature 3 - Personalized Mentorship */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 hover:bg-white/90 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                     <Users className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">1:1 Mentorship</h3>
@@ -480,9 +479,9 @@ const Home: React.FC = () => {
                   Get personalized guidance from industry experts with 1:1 mentorship sessions, career coaching, and continuous support throughout your journey.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Personal Coach</span>
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Career Guidance</span>
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">24/7 Support</span>
+                  <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">Personal Coach</span>
+                  <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">Career Guidance</span>
+                  <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">24/7 Support</span>
                 </div>
               </div>
             </div>
@@ -553,66 +552,13 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Impact in Numbers Section */}
-      <section id="placements" className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30 shadow-lg">
-              <span className="text-white font-semibold text-sm">📊 Our Impact</span>
-            </div>
-
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="text-white">Our Impact in</span>{' '}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                Numbers
-              </span>
-            </h2>
-
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              See the measurable impact we've made in transforming careers and building the next generation of tech professionals
-            </p>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">10,000+</div>
-              <div className="text-xl text-white font-semibold">Students Trained</div>
-              <div className="text-blue-200 text-sm mt-2">Across all programs</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">95%</div>
-              <div className="text-xl text-white font-semibold">Job Placement Rate</div>
-              <div className="text-blue-200 text-sm mt-2">Within 6 months</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">500+</div>
-              <div className="text-xl text-white font-semibold">Industry Partners</div>
-              <div className="text-blue-200 text-sm mt-2">Including FAANG</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">50+</div>
-              <div className="text-xl text-white font-semibold">Expert Mentors</div>
-              <div className="text-blue-200 text-sm mt-2">From top companies</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Programs Section - Auto-Scroll */}
       <section id="programs" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-100/20 rounded-full blur-3xl"></div>
         </div>
 
@@ -624,7 +570,7 @@ const Home: React.FC = () => {
             </div>
 
             <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Launch Your Career
               </span>
             </h2>
@@ -694,7 +640,7 @@ const Home: React.FC = () => {
                     <div className="mt-auto">
                       <Link
                         to="/signup"
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                       >
                         <span>Enroll Now</span>
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -710,11 +656,11 @@ const Home: React.FC = () => {
 
 
       {/* Mentors Section */}
-      <section id="mentors" className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <section id="mentors" className="py-24 bg-gradient-to-br from-blue-50 via-emerald-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Meet Our Expert Mentors
               </span>
             </h2>
@@ -742,13 +688,13 @@ const Home: React.FC = () => {
                 <div className="flex-grow text-center md:text-left">
                   <h3 className="text-3xl font-bold text-gray-900 mb-2">{mentors[currentMentorIndex].name}</h3>
                   <p className="text-xl text-gray-600 mb-2">{mentors[currentMentorIndex].title}</p>
-                  <p className="text-lg text-purple-600 font-semibold mb-4">{mentors[currentMentorIndex].expertise}</p>
+                  <p className="text-lg text-yellow-600 font-semibold mb-4">{mentors[currentMentorIndex].expertise}</p>
                   <p className="text-gray-700 text-lg italic mb-6">"{mentors[currentMentorIndex].quote}"</p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-6">
                     {mentors[currentMentorIndex].specialties.map((specialty, index) => (
                       <span
                         key={index}
-                        className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold"
+                        className="bg-gradient-to-r from-blue-100 to-emerald-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold"
                       >
                         {specialty}
                       </span>
@@ -756,11 +702,11 @@ const Home: React.FC = () => {
                   </div>
                   <div className="flex justify-center md:justify-start gap-6 text-sm text-gray-600">
                     <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-purple-600" />
+                      <Users className="w-4 h-4 mr-2 text-yellow-600" />
                       <span>{mentors[currentMentorIndex].students} students</span>
                     </div>
                     <div className="flex items-center">
-                      <Award className="w-4 h-4 mr-2 text-purple-600" />
+                      <Award className="w-4 h-4 mr-2 text-yellow-600" />
                       <span>{mentors[currentMentorIndex].experience}</span>
                     </div>
                   </div>
@@ -776,7 +722,7 @@ const Home: React.FC = () => {
                 key={mentor.id}
                 className={`card-gradient p-6 transition-all duration-500 ${
                   index === currentMentorIndex
-                    ? 'ring-4 ring-purple-300 shadow-2xl scale-105'
+                    ? 'ring-4 ring-yellow-300 shadow-2xl scale-105'
                     : 'hover:shadow-xl hover:scale-105'
                 }`}
               >
@@ -788,7 +734,7 @@ const Home: React.FC = () => {
                   />
                   <h4 className="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h4>
                   <p className="text-gray-600 text-sm mb-2">{mentor.title}</p>
-                  <p className="text-purple-600 font-semibold text-sm mb-3">{mentor.expertise}</p>
+                  <p className="text-yellow-600 font-semibold text-sm mb-3">{mentor.expertise}</p>
                   <div className="flex justify-center items-center mb-3">
                     <Star className="w-4 h-4 text-yellow-500 mr-1" />
                     <span className="text-sm font-semibold">{mentor.rating}</span>
@@ -798,7 +744,7 @@ const Home: React.FC = () => {
                     {mentor.specialties.slice(0, 2).map((specialty, i) => (
                       <span
                         key={i}
-                        className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold"
+                        className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold"
                       >
                         {specialty}
                       </span>
@@ -813,14 +759,14 @@ const Home: React.FC = () => {
       </section>
 
       {/* Combined CTA Section - Ready to Transform & Become a Mentor */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30 shadow-lg">
               <span className="text-blue-600 font-semibold text-sm">🚀 Take Action</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 Ready to Make Your Move?
               </span>
             </h2>
@@ -833,11 +779,11 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Ready to Transform Your Career */}
             <div className="relative h-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-3xl blur-xl"></div>
               <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-white/50 h-full flex flex-col">
                 <div className="text-center flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mb-6">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full mx-auto mb-6">
                       <Rocket className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-3xl font-bold text-gray-900 mb-4">
@@ -850,7 +796,7 @@ const Home: React.FC = () => {
                   <div className="space-y-4">
                     <Link
                       to="/signup"
-                      className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                      className="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
                     >
                       <Zap className="inline-block mr-2 h-5 w-5" />
                       Apply Now
@@ -869,11 +815,11 @@ const Home: React.FC = () => {
 
             {/* Become a Mentor */}
             <div className="relative h-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 rounded-3xl blur-xl"></div>
               <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-white/50 h-full flex flex-col">
                 <div className="text-center flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mx-auto mb-6">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full mx-auto mb-6">
                       <GraduationCap className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-3xl font-bold text-gray-900 mb-4">
@@ -887,7 +833,7 @@ const Home: React.FC = () => {
                   <div className="space-y-4">
                     <Link
                       to="/mentor-application"
-                      className="block w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                      className="block w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
                     >
                       <Heart className="inline-block mr-2 h-5 w-5" />
                       Apply as Mentor
@@ -895,7 +841,7 @@ const Home: React.FC = () => {
                     </Link>
                     <Link
                       to="/contact"
-                      className="block w-full bg-transparent border-2 border-purple-600 text-purple-600 hover:bg-purple-50 py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300"
+                      className="block w-full bg-transparent border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-50 py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300"
                     >
                       Learn More
                     </Link>
@@ -916,7 +862,7 @@ const Home: React.FC = () => {
               <span className="text-blue-600 font-semibold text-sm"> Student Success Stories</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-emerald-600">
                 Hear From Our Graduates
               </span>
             </h2>
@@ -989,7 +935,7 @@ const Home: React.FC = () => {
               <span className="text-white font-semibold text-sm"> Get In Touch</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent">
+              <span className="text-yellow-500">
                 Ready to Start Your Journey?
               </span>
             </h2>
@@ -1025,7 +971,7 @@ const Home: React.FC = () => {
                   </div>
                   
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
                       <Globe className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -1041,7 +987,7 @@ const Home: React.FC = () => {
                 <div className="space-y-4">
                   <Link
                     to="/signup"
-                    className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    className="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                   >
                     Start Your Application
                   </Link>
@@ -1095,7 +1041,7 @@ const Home: React.FC = () => {
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Send Message
                 </button>

@@ -33,7 +33,7 @@ const StudentDashboard: React.FC = () => {
   const stats = [
     { label: 'Courses Completed', value: '8/12', icon: CheckCircle, color: 'text-green-600' },
     { label: 'Hours Studied', value: '156', icon: Clock, color: 'text-blue-600' },
-    { label: 'Assignments', value: '24/30', icon: FileText, color: 'text-purple-600' },
+    { label: 'Assignments', value: '24/30', icon: FileText, color: 'text-yellow-600' },
     { label: 'Certificates', value: '3', icon: Award, color: 'text-yellow-600' }
   ];
 
@@ -68,7 +68,7 @@ const StudentDashboard: React.FC = () => {
       title: 'Attended: Live Q&A Session',
       time: '1 week ago',
       icon: Video,
-      color: 'text-purple-600'
+      color: 'text-yellow-600'
     }
   ];
 
@@ -131,7 +131,7 @@ const StudentDashboard: React.FC = () => {
       instructor: 'Alex Thompson',
       duration: '2 weeks',
       icon: Cloud,
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-yellow-500 to-yellow-600'
     }
   ];
 
@@ -182,7 +182,7 @@ const StudentDashboard: React.FC = () => {
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-blue-500 to-yellow-500 h-3 rounded-full transition-all duration-500"
                 style={{ width: `${user.progress}%` }}
               ></div>
             </div>
@@ -290,7 +290,7 @@ const StudentDashboard: React.FC = () => {
                             </div>
                             <div className="w-full bg-gray-200 rounded-full h-2">
                               <div 
-                                className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500"
+                                className="bg-gradient-to-r from-blue-500 to-yellow-500 h-2 rounded-full transition-all duration-500"
                                 style={{ width: `${course.progress}%` }}
                               ></div>
                             </div>
@@ -373,7 +373,7 @@ const StudentDashboard: React.FC = () => {
                   <span className="text-gray-900">Download Resources</span>
                 </button>
                 <button className="w-full flex items-center space-x-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors">
-                  <MessageCircle className="h-5 w-5 text-purple-600" />
+                  <MessageCircle className="h-5 w-5 text-yellow-600" />
                   <span className="text-gray-900">Contact Mentor</span>
                 </button>
                 <button className="w-full flex items-center space-x-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors">

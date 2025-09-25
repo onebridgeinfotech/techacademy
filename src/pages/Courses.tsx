@@ -76,7 +76,7 @@ const Courses: React.FC = () => {
       rating: 4.7,
       price: '₹12,999',
       icon: Target,
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-yellow-500 to-yellow-600',
       category: 'management',
       features: ['Agile & Scrum', 'Project Tools', 'Team Leadership', 'Risk Management'],
       badge: 'Leadership',

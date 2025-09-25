@@ -278,7 +278,7 @@ const AdminDashboard: React.FC = () => {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Shield className="w-8 h-8 text-purple-600" />
+                <Shield className="w-8 h-8 text-yellow-600" />
               </div>
               <div className="ml-4">
                 <h3 className="text-sm font-medium text-gray-500">Security</h3>

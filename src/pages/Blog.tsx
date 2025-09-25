@@ -164,7 +164,7 @@ const Blog: React.FC = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               <span className="text-white">Latest</span>{' '}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="text-yellow-500">
                 Insights
               </span>
             </h1>
@@ -196,7 +196,7 @@ const Blog: React.FC = () => {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -211,7 +211,7 @@ const Blog: React.FC = () => {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                       selectedCategory === category.id
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                        ? 'bg-gradient-to-r from-blue-600 to-yellow-600 text-white shadow-lg'
                         : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white/90 hover:shadow-md'
                     }`}
                   >
@@ -232,7 +232,7 @@ const Blog: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {featuredPosts.map((post) => (
                   <article key={post.id} className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                     <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/50 hover:bg-white/90 transition-all duration-500 hover:shadow-2xl">
                       <div className="relative h-64 overflow-hidden">
                         <img
@@ -304,7 +304,7 @@ const Blog: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regularPosts.map((post) => (
               <article key={post.id} className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 hover:bg-white/90 transition-all duration-500 hover:shadow-xl">
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -363,7 +363,7 @@ const Blog: React.FC = () => {
           {/* Newsletter Signup */}
           <div className="mt-20 text-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-yellow-500/10 rounded-3xl blur-xl"></div>
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-2xl">
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">
                   Stay Updated
@@ -378,7 +378,7 @@ const Blog: React.FC = () => {
                     placeholder="Enter your email"
                     className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
-                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                  <button className="bg-gradient-to-r from-blue-600 to-yellow-600 hover:from-blue-700 hover:to-yellow-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     Subscribe
                   </button>
                 </div>

@@ -20,7 +20,7 @@ const Placements: React.FC = () => {
   const stats = [
     { number: '95%', label: 'Placement Rate', icon: Target, color: 'text-green-600' },
     { number: '$85K', label: 'Average Salary', icon: DollarSign, color: 'text-blue-600' },
-    { number: '50+', label: 'Partner Companies', icon: Globe, color: 'text-purple-600' },
+    { number: '50+', label: 'Partner Companies', icon: Globe, color: 'text-yellow-600' },
     { number: '2.5', label: 'Months Avg. to Job', icon: Calendar, color: 'text-orange-600' }
   ];
 

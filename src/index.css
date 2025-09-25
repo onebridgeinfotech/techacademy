@@ -4,6 +4,63 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Professional Brand Color System - Psychology & Numerology Based */
+:root {
+  /* Royal Blue - Primary Brand Color (#0057A8) */
+  /* Wisdom, intelligence, focus - Numerology: 1 & 5 (leadership + communication) */
+  --royal-blue: #0057A8;
+  --royal-blue-50: #e6f2ff;
+  --royal-blue-100: #b3d9ff;
+  --royal-blue-200: #80bfff;
+  --royal-blue-300: #4da6ff;
+  --royal-blue-400: #1a8cff;
+  --royal-blue-500: #0057A8;
+  --royal-blue-600: #004d96;
+  --royal-blue-700: #004284;
+  --royal-blue-800: #003872;
+  --royal-blue-900: #002e60;
+
+  /* Emerald Green - Action & Trust Color (#2ECC71) */
+  /* Growth, learning, healing, prosperity - Numerology: 6 & 9 (service, completion, universal success) */
+  --emerald-green: #2ECC71;
+  --emerald-green-50: #e8f8f5;
+  --emerald-green-100: #c8f7c5;
+  --emerald-green-200: #a8f6a5;
+  --emerald-green-300: #88f585;
+  --emerald-green-400: #68f465;
+  --emerald-green-500: #2ECC71;
+  --emerald-green-600: #26b85f;
+  --emerald-green-700: #1ea44d;
+  --emerald-green-800: #16903b;
+  --emerald-green-900: #0e7c29;
+
+  /* Warm Yellow/Gold - Energy & Optimism (#F4C542) */
+  /* Optimism, clarity, energy - Numerology: 3 (creativity, expression, joy) */
+  --warm-gold: #F4C542;
+  --warm-gold-50: #fef9e7;
+  --warm-gold-100: #fdf2cf;
+  --warm-gold-200: #fcebb7;
+  --warm-gold-300: #fbe49f;
+  --warm-gold-400: #fadd87;
+  --warm-gold-500: #F4C542;
+  --warm-gold-600: #d4a538;
+  --warm-gold-700: #b4852e;
+  --warm-gold-800: #946524;
+  --warm-gold-900: #74451a;
+
+  /* Neutral Colors - Professional Grays */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -117,21 +174,76 @@ code {
   background-clip: text;
 }
 
-/* Modern EdTech Design System */
+/* Professional Brand Design System */
 .btn-primary {
-  @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
+  background: var(--royal-blue);
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 rgba(0, 87, 168, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--royal-blue-600);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px 0 rgba(0, 87, 168, 0.4);
 }
 
 .btn-secondary {
-  @apply bg-white text-gray-700 font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200 hover:border-gray-300;
+  background: var(--emerald-green);
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 rgba(46, 204, 113, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--emerald-green-600);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px 0 rgba(46, 204, 113, 0.4);
+}
+
+.btn-accent {
+  background: var(--warm-gold);
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px 0 rgba(244, 197, 66, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-accent:hover {
+  background: var(--warm-gold-600);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px 0 rgba(244, 197, 66, 0.4);
 }
 
 .btn-ghost {
-  @apply bg-transparent text-gray-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-50 transition-all duration-300;
+  background: transparent;
+  color: var(--gray-600);
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: 2px solid var(--gray-200);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn-gradient {
-  @apply bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
+.btn-ghost:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+  color: var(--gray-700);
 }
 
 .card {

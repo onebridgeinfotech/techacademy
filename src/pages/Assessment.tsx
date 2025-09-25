@@ -1,29 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   Upload, 
-  FileText, 
-  Mic, 
-  Video, 
-  Code, 
   CheckCircle, 
   XCircle,
   Clock,
-  User,
-  Mail,
-  Phone,
-  MapPin,
   Lock,
   AlertTriangle,
   Camera,
   CameraOff,
   Play,
-  Pause,
-  Send,
-  Award,
-  Shield,
-  Eye,
-  EyeOff
+  Pause
 } from 'lucide-react';
 import { assessmentService, AssessmentData } from '../services/assessmentService';
 import { resumeParserService, ParsedResume } from '../services/resumeParser';
@@ -508,10 +495,10 @@ const Assessment: React.FC = () => {
                   {results.communicationTest.pass ? 'Passed' : 'Failed'}
                 </p>
               </div>
-              <div className="bg-purple-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-purple-900 mb-2">Coding Test</h3>
-                <p className="text-2xl font-bold text-purple-600">{results.codingTest.score}%</p>
-                <p className="text-sm text-purple-700">
+              <div className="bg-yellow-50 p-6 rounded-lg">
+                <h3 className="font-semibold text-yellow-900 mb-2">Coding Test</h3>
+                <p className="text-2xl font-bold text-yellow-600">{results.codingTest.score}%</p>
+                <p className="text-sm text-yellow-700">
                   {results.codingTest.pass ? 'Passed' : 'Failed'} • {results.codingTest.language}
                 </p>
               </div>
