@@ -23,7 +23,8 @@ const Header: React.FC = () => {
         { name: 'Programs', href: '/', sectionId: 'programs' },
         { name: 'Mentors', href: '/', sectionId: 'mentors' },
         { name: 'Placements', href: '/', sectionId: 'placements' },
-        { name: 'Blog', href: '/blog', sectionId: null }
+        { name: 'Blog', href: '/blog', sectionId: null },
+        { name: 'Contact Us', href: '/contact', sectionId: null }
       ];
 
   return (
@@ -43,16 +44,24 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
                 {navigation.map((item) => {
-                  const isActive = location.pathname === item.href;
+                  // For homepage sections, check if we're on homepage
+                  // For separate pages, check if current path matches
+                  const isActive = item.sectionId 
+                    ? location.pathname === '/' 
+                    : location.pathname === item.href;
+                  
+                  // Unified styling for all navigation items
+                  const unifiedClasses = `px-6 py-3 rounded-xl font-semibold transition-all duration-300 cursor-pointer ${
+                    isActive 
+                      ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md' 
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
+                  }`;
+                  
                   return item.sectionId ? (
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.sectionId)}
-                      className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                        isActive
-                          ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
-                      }`}
+                      className={unifiedClasses}
                     >
                       {item.name}
                     </button>
@@ -60,11 +69,7 @@ const Header: React.FC = () => {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                        isActive
-                          ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
-                      }`}
+                      className={unifiedClasses}
                     >
                       {item.name}
                     </Link>
@@ -98,16 +103,24 @@ const Header: React.FC = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg mt-2 border border-gray-200 shadow-lg">
                   {navigation.map((item) => {
-                    const isActive = location.pathname === item.href;
+                    // For homepage sections, check if we're on homepage
+                    // For separate pages, check if current path matches
+                    const isActive = item.sectionId 
+                      ? location.pathname === '/' 
+                      : location.pathname === item.href;
+                    
+                    // Unified styling for all navigation items (mobile)
+                    const unifiedClasses = `block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer ${
+                      isActive 
+                        ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border border-blue-200 shadow-md' 
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
+                    }`;
+                    
                     return item.sectionId ? (
                       <button
                         key={item.name}
                         onClick={() => scrollToSection(item.sectionId)}
-                        className={`block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
-                          isActive
-                            ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
-                        }`}
+                        className={unifiedClasses}
                       >
                         {item.name}
                       </button>
@@ -116,11 +129,7 @@ const Header: React.FC = () => {
                         key={item.name}
                         to={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`block w-full text-left px-3 py-3 rounded-lg font-medium transition-all duration-300 ${
-                          isActive
-                            ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
-                        }`}
+                        className={unifiedClasses}
                       >
                         {item.name}
                       </Link>

@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Calendar, 
-  User, 
-  Tag, 
   ArrowRight, 
-  Search, 
-  Filter,
+  Search,
   TrendingUp,
   BookOpen,
   Code,
@@ -14,7 +11,6 @@ import {
   Shield,
   Zap,
   Target,
-  Star,
   Clock,
   Eye
 } from 'lucide-react';

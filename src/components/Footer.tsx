@@ -90,6 +90,11 @@ const Footer: React.FC = () => {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
