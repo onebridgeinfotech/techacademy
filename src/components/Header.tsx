@@ -23,8 +23,8 @@ const Header: React.FC = () => {
         { name: 'Programs', href: '/', sectionId: 'programs' },
         { name: 'Mentors', href: '/', sectionId: 'mentors' },
         { name: 'Placements', href: '/', sectionId: 'placements' },
-        { name: 'Blog', href: '/blog', sectionId: null },
-        { name: 'Contact Us', href: '/contact', sectionId: null }
+        { name: 'Testimonials', href: '/', sectionId: 'testimonials' },
+        { name: 'Contact Us', href: '/', sectionId: 'contact' }
       ];
 
   return (
@@ -41,8 +41,8 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          {/* Desktop Navigation - Full navigation for large screens */}
+          <nav className="hidden lg:flex items-center space-x-1">
                 {navigation.map((item) => {
                   // For homepage sections, check if we're on homepage
                   // For separate pages, check if current path matches
@@ -50,8 +50,44 @@ const Header: React.FC = () => {
                     ? location.pathname === '/' 
                     : location.pathname === item.href;
                   
-                  // Unified styling for all navigation items
-                  const unifiedClasses = `px-6 py-3 rounded-xl font-semibold transition-all duration-300 cursor-pointer ${
+                  // Unified styling for all navigation items with reduced padding
+                  const unifiedClasses = `px-4 py-2 rounded-lg font-semibold transition-all duration-300 cursor-pointer text-sm ${
+                    isActive 
+                      ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md' 
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
+                  }`;
+                  
+                  return item.sectionId ? (
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.sectionId)}
+                      className={unifiedClasses}
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={unifiedClasses}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
+          </nav>
+
+          {/* Medium Screen Navigation - Key items only */}
+          <nav className="hidden md:flex lg:hidden items-center space-x-1">
+                {navigation.slice(0, 4).map((item) => {
+                  // For homepage sections, check if we're on homepage
+                  // For separate pages, check if current path matches
+                  const isActive = item.sectionId 
+                    ? location.pathname === '/' 
+                    : location.pathname === item.href;
+                  
+                  // Unified styling for all navigation items with reduced padding
+                  const unifiedClasses = `px-3 py-2 rounded-lg font-semibold transition-all duration-300 cursor-pointer text-sm ${
                     isActive 
                       ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md' 
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md'
@@ -88,7 +124,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-blue-600 transition-colors duration-300 p-2"
@@ -100,7 +136,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg mt-2 border border-gray-200 shadow-lg">
                   {navigation.map((item) => {
                     // For homepage sections, check if we're on homepage

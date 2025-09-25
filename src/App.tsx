@@ -21,48 +21,55 @@ import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Blog from './pages/Blog';
+import StudentDashboard from './pages/StudentDashboard';
+import Testimonials from './pages/Testimonials';
 import Chatbot from './components/Chatbot';
 import ScrollToTop from './components/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-50 flex flex-col">
-        <Header />
-        <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/internships" element={<Internships />} />
-          <Route path="/placements" element={<Placements />} />
-          <Route path="/sponsorship" element={<Sponsorship />} />
-          <Route path="/mentor-application" element={<MentorApplication />} />
-          <Route path="/apply" element={<ProgramApplication />} />
-          <Route path="/assessment" element={<Assessment />} />
-          <Route path="/analytics" element={<AssessmentAnalytics />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/chatbot" element={<ChatbotPage />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
-        </main>
-        <Footer />
-        
-        {/* Floating Chatbot */}
-        <Chatbot isOpen={isChatbotOpen} onToggle={() => setIsChatbotOpen(!isChatbotOpen)} />
-        
-        {/* Scroll to Top Button */}
-        <ScrollToTop />
-      </div>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <div className="min-h-screen bg-gray-50 flex flex-col">
+          <Header />
+          <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/internships" element={<Internships />} />
+            <Route path="/placements" element={<Placements />} />
+            <Route path="/sponsorship" element={<Sponsorship />} />
+            <Route path="/mentor-application" element={<MentorApplication />} />
+            <Route path="/apply" element={<ProgramApplication />} />
+            <Route path="/assessment" element={<Assessment />} />
+            <Route path="/analytics" element={<AssessmentAnalytics />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/chatbot" element={<ChatbotPage />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/dashboard" element={<StudentDashboard />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+          </Routes>
+          </main>
+          <Footer />
+          
+          {/* Floating Chatbot */}
+          <Chatbot isOpen={isChatbotOpen} onToggle={() => setIsChatbotOpen(!isChatbotOpen)} />
+
+          {/* Scroll to Top Button */}
+          <ScrollToTop />
+        </div>
+      </Router>
+    </ErrorBoundary>
   );
 }
 

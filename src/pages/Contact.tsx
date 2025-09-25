@@ -268,6 +268,49 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Newsletter Section */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-8 border border-blue-200 shadow-2xl">
+                <div className="text-center">
+                  <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full px-6 py-3 mb-6 border border-blue-200 shadow-lg">
+                    <span className="text-blue-700 font-semibold text-sm">📧 Stay Updated</span>
+                  </div>
+
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                      Stay in the Loop
+                    </span>
+                  </h3>
+
+                  <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Get the latest updates on new programs, industry insights, and exclusive opportunities delivered to your inbox.
+                  </p>
+
+                  <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                    <div className="flex-grow">
+                      <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        className="w-full px-6 py-4 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-gray-900 placeholder-gray-500"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    >
+                      <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      Subscribe
+                    </button>
+                  </form>
+
+                  <p className="text-gray-500 text-sm mt-4">
+                    Join 10,000+ subscribers. Unsubscribe anytime.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Additional Info */}
             <div className="space-y-8">
               <div className="relative">
@@ -346,6 +389,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

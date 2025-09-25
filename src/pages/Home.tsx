@@ -809,118 +809,297 @@ const Home: React.FC = () => {
             ))}
           </div>
 
-          {/* Become a Mentor CTA */}
-          <div className="text-center">
-            <div className="card-gradient p-8 max-w-2xl mx-auto">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mx-auto mb-6">
-                <GraduationCap className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Become a Mentor</h3>
-              <p className="text-gray-600 mb-6">
-                Share your expertise and help shape the next generation of tech professionals. 
-                Join our community of industry leaders and make a lasting impact.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/mentor-application"
-                  className="btn-gradient text-lg px-8 py-4 flex items-center space-x-2 group"
-                >
-                  <Heart className="h-5 w-5" />
-                  <span>Apply as Mentor</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="btn-secondary text-lg px-8 py-4 flex items-center space-x-2 group"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  <span>Learn More</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-12 shadow-2xl">
-            <Rocket className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of successful graduates who have launched their tech careers with TechAcademy
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link
-                to="/signup"
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
-              >
-                <Zap className="mr-2 h-5 w-5" />
-                Apply Now
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/mentor-application"
-                className="group bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
-              >
-                <Award className="mr-2 h-5 w-5" />
-                Become a Mentor
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+      {/* Combined CTA Section - Ready to Transform & Become a Mentor */}
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30 shadow-lg">
+              <span className="text-blue-600 font-semibold text-sm">🚀 Take Action</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center">
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full px-6 py-3 mb-8 border border-blue-200 shadow-lg">
-              <span className="text-blue-700 font-semibold text-sm">📧 Stay Updated</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Stay in the Loop
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Ready to Make Your Move?
               </span>
             </h2>
-
-            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Get the latest updates on new programs, industry insights, and exclusive opportunities delivered to your inbox.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Whether you're looking to transform your career or share your expertise as a mentor, 
+              we have the perfect path for you.
             </p>
+          </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-2xl max-w-2xl mx-auto">
-              <form className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-grow">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Ready to Transform Your Career */}
+            <div className="relative h-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
+              <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-white/50 h-full flex flex-col">
+                <div className="text-center flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mb-6">
+                      <Rocket className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      Ready to Transform Your Career?
+                    </h3>
+                    <p className="text-gray-600 mb-8">
+                      Join thousands of successful graduates who have launched their tech careers with TechAcademy
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <Link
+                      to="/signup"
+                      className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                    >
+                      <Zap className="inline-block mr-2 h-5 w-5" />
+                      Apply Now
+                      <ArrowRight className="inline-block ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                    <Link
+                      to="/assessment"
+                      className="block w-full bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-50 py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300"
+                    >
+                      Take Assessment
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Become a Mentor */}
+            <div className="relative h-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl blur-xl"></div>
+              <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-white/50 h-full flex flex-col">
+                <div className="text-center flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mx-auto mb-6">
+                      <GraduationCap className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      Become a Mentor
+                    </h3>
+                    <p className="text-gray-600 mb-8">
+                      Share your expertise and help shape the next generation of tech professionals. 
+                      Join our community of industry leaders and make a lasting impact.
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <Link
+                      to="/mentor-application"
+                      className="block w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                    >
+                      <Heart className="inline-block mr-2 h-5 w-5" />
+                      Apply as Mentor
+                      <ArrowRight className="inline-block ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="block w-full bg-transparent border-2 border-purple-600 text-purple-600 hover:bg-purple-50 py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-white/10 rounded-full px-6 py-3 mb-8 border border-white/20 shadow-lg">
+              <span className="text-blue-600 font-semibold text-sm"> Student Success Stories</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Hear From Our Graduates
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Discover how TechAcademy has transformed careers and lives through cutting-edge education.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Alice Johnson',
+                role: 'Software Engineer',
+                company: 'Tech Solutions Inc.',
+                quote: 'TechAcademy transformed my career. The hands-on projects and expert mentors were invaluable. I landed my dream job with a significant salary increase!',
+                image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+                rating: 5,
+                salaryIncrease: '40%'
+              },
+              {
+                name: 'Bob Williams',
+                role: 'Cloud Architect',
+                company: 'Global Innovations',
+                quote: 'The Cloud & DevOps program is top-notch. I gained advanced skills that led to a promotion and a substantial raise.',
+                image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+                rating: 5,
+                salaryIncrease: '30%'
+              },
+              {
+                name: 'Carol Davis',
+                role: 'Cybersecurity Analyst',
+                company: 'SecureNet Corp.',
+                quote: 'I highly recommend TechAcademy for anyone serious about cybersecurity. The practical labs prepared me for real-world challenges.',
+                image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+                rating: 4,
+                salaryIncrease: 'Entry Level'
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover border-4 border-blue-500 shadow-md mr-4" />
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                    <p className="text-blue-600 font-medium">{testimonial.role}</p>
+                    <p className="text-gray-600 text-sm">{testimonial.company}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                  <span className="ml-2 text-gray-600 text-sm">+{testimonial.salaryIncrease} salary increase</span>
+                </div>
+                
+                <blockquote className="text-gray-700 italic text-lg leading-relaxed">
+                  "{testimonial.quote}"
+                </blockquote>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-white/10 rounded-full px-6 py-3 mb-8 border border-white/20 shadow-lg">
+              <span className="text-white font-semibold text-sm"> Get In Touch</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent">
+                Ready to Start Your Journey?
+              </span>
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Have questions about our programs? Want to learn more about our assessment process? We're here to help!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-lg">
+                <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                      <MessageCircle className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Email</p>
+                      <p className="text-blue-200">info@techacademy.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                      <Briefcase className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Phone</p>
+                      <p className="text-blue-200">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                      <Globe className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Address</p>
+                      <p className="text-blue-200">123 Tech Street, Silicon Valley, CA 94000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-lg">
+                <h3 className="text-2xl font-bold mb-6">Quick Actions</h3>
+                <div className="space-y-4">
+                  <Link
+                    to="/signup"
+                    className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    Start Your Application
+                  </Link>
+                  <Link
+                    to="/assessment"
+                    className="block w-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 py-4 px-6 rounded-2xl font-semibold text-center transition-all duration-300"
+                  >
+                    Take Assessment
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-lg">
+              <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="w-full px-6 py-4 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-gray-900 placeholder-gray-500"
+                    type="text"
+                    placeholder="First Name"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300"
                   />
                 </div>
+                
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300"
+                />
+                
+                <select className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300">
+                  <option value="">Select Program Interest</option>
+                  <option value="fullstack">Full Stack Development</option>
+                  <option value="cloud">Cloud & DevOps</option>
+                  <option value="data">Data Science</option>
+                  <option value="ai">AI & Generative</option>
+                  <option value="cybersecurity">Cybersecurity</option>
+                </select>
+                
+                <textarea
+                  placeholder="Your Message"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300 resize-none"
+                ></textarea>
+                
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  Subscribe
+                  Send Message
                 </button>
               </form>
-
-              <p className="text-gray-500 text-sm mt-4 text-center">
-                Join 10,000+ subscribers. Unsubscribe anytime.
-              </p>
             </div>
           </div>
         </div>
